@@ -26,7 +26,6 @@ app.get("/user/:id",(req,res)=>{
     res.send(findUser)
 })
 
-
 app.listen(4000,()=>{
     console.log("Server running...")
 })
