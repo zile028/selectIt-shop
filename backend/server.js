@@ -1,31 +1,20 @@
 //server
 const express = require("express");
+const mongoose = require("mongoose")
 const cors = require("cors")
-const users = require("./users.json")
 const app = express()
-app.use(cors())
+const dbUrl = require("./config/configDb")
 
-// app.use(express.urlencoded({extended:true}))
+app.use(cors())
+mongoose.connect(dbUrl)
+    .then(() => console.log("MongoDB connected"))
+    .catch((error) => console.log(error))
+
+app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
-app.post("/user",(req, res)=>{
+app.use("/", require("./routes"))
 
-    const {pet,color} = req.body
-    console.log(pet)
-
-
-    res.send(users)
-})
-
-app.get("/user/:id",(req,res)=>{
-
-    let findUser = users.find((user)=>{
-        return user.id === parseInt(req.params.id)
-    })
-
-    res.send(findUser)
-})
-
-app.listen(4000,()=>{
+app.listen(4000, () => {
     console.log("Server running...")
 })
