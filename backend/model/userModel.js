@@ -7,6 +7,7 @@ const UserSchema = new mongoose.Schema({
     password: {type: String, required: true},
     isAdmin: {type: Boolean, default: false},
     image: {type: String, default: null},
+    isActivated: {type: Boolean, default: false},
     createdAt: {type: Date, default: () => new Date().getTime()}
 })
 

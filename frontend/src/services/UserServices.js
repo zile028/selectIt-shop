@@ -2,7 +2,8 @@ import axios from "axios";
 
 class UserServices {
 
-    static getUser = (body) => axios.post("/user",body)
+    static register = (body) => axios.post("/user/register", body)
+    static getUser = (body) => axios.post("/user", body)
 
 }
 
