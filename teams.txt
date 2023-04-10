@@ -1,0 +1,26 @@
+TEAM 1
+--------------------
+1. Jelena
+2. Filp Jovic
+3. Senad
+
+--------------------
+TEAM 2
+--------------------
+1. Emin
+2. Josip
+3. Tamara
+
+--------------------
+TEAM 3
+--------------------
+1. Andjelina
+2. Nikola Damnjanovic
+3. Bojan
+
+--------------------
+TEAM 4
+--------------------
+1. Nikola Petrovic
+2. Milisav
+3.

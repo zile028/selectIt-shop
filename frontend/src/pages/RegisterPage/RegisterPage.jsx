@@ -17,7 +17,9 @@ function RegisterPage() {
         e.preventDefault()
         UserServices.register(inputData)
             .then((res) => {
-                console.log(res.data)
+                if (res.status === 201) {
+                    console.log(res.data.msg)
+                }
             })
             .catch((err) => {
                 console.log("GRESKA")
