@@ -1,0 +1,289 @@
+// ----------  reset
+// ------------------------------------------------------------------------------
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+	margin: 0;
+	padding: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+main {
+	display: block;
+}
+
+audio:not([controls]) {
+	display: none;
+}
+
+[hidden] {
+	display: none;
+}
+
+// ----------  base reset
+// ------------------------------------------------------------------------------
+html {
+	font-size: 100%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	height: 100%;
+}
+
+body {
+	font-size: 1em;
+	line-height: 1.35;
+
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+
+}
+
+::-moz-selection {
+	background: #000;
+	color: #fff;
+	text-shadow: none;
+}
+
+::selection {
+	background: #000;
+	color: #fff;
+	text-shadow: none;
+}
+
+// ----------  links
+// ------------------------------------------------------------------------------
+a {
+	text-decoration: none;
+}
+
+a:focus,
+a:hover,
+a:active {
+	outline: none;
+}
+
+// ----------  typography
+// ------------------------------------------------------------------------------
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+
+b,
+strong {
+	font-weight: bold;
+}
+
+blockquote {
+	margin: 0;
+}
+
+dfn {
+	font-style: italic;
+}
+
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ccc;
+	margin: 1em 0;
+	padding: 0;
+}
+
+ins {
+	background: #ff9;
+	color: #000;
+	text-decoration: none;
+}
+
+pre,
+code,
+kbd,
+samp {
+	font-family: monospace, serif;
+	font-size: 1em;
+}
+
+pre {
+	white-space: pre;
+	word-wrap: break-word;
+}
+
+q {
+	quotes: none;
+}
+
+q::before,
+q::after {
+	content: '';
+}
+
+small {
+	font-size: 85%;
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+// ----------  lists
+// ------------------------------------------------------------------------------
+nav ul,
+nav ol,
+ul,
+li {
+	list-style: none;
+	list-style-image: none;
+	margin: 0;
+	padding: 0;
+}
+
+// ----------  Embedded content
+// ------------------------------------------------------------------------------
+img {
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+	vertical-align: middle;
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+// ----------  forms
+// ------------------------------------------------------------------------------
+figure {
+	margin: 0;
+}
+
+form {
+	margin: 0;
+}
+
+fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+label {
+	cursor: pointer;
+}
+
+legend {
+	border: 0;
+	padding: 0;
+	white-space: normal;
+}
+
+button,
+input,
+select,
+textarea {
+	font-size: 100%;
+	margin: 0;
+	vertical-align: baseline;
+}
+
+button,
+input {
+	line-height: normal;
+}
+
+button,
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+	cursor: pointer;
+	-webkit-appearance: button;
+}
+
+button[disabled],
+input[disabled] {
+	cursor: default;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='search'],
+textarea {
+	box-shadow: none;
+	appearance: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+textarea {
+	overflow: auto;
+	vertical-align: top;
+	resize: vertical;
+}
+
+input:invalid,
+textarea:invalid {
+	background-color: #f0dddd;
+}
+
+input,
+textarea,
+select {
+	outline: none;
+}
+
+// ----------  tables
+// ------------------------------------------------------------------------------
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	border-color: transparent;
+}
+
+td {
+	vertical-align: top;
+}

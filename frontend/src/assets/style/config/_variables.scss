@@ -1,0 +1,31 @@
+// ----------  variables
+// ------------------------------------------------------------------------------
+
+$font-default: 'Poppins', sans-serif;
+$font-headings: 'Bree Serif', serif;
+
+// Colors
+$white: #fff;
+$black: #3a3a3a;
+$black-dark: #000;
+$orange: #f1592a;
+$grey: #808080;
+$grey-light: #fafafa;
+$grey-lighter: #eee;
+$grey-blend: #f2f2f2;
+$green: #53a665;
+$yellow: #f8da5b;
+$yellow-dark: #eec60a;
+$yellow-light: #ffc93c;
+
+
+// ----------  Media queries breakpoints - Grid breakpoint
+// ------------------------------------------------------------------------------
+
+$grid-breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px
+) !default;

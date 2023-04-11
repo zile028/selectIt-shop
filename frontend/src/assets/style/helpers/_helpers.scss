@@ -1,0 +1,20 @@
+// ----------  helpers
+// ------------------------------------------------------------------------------
+
+* {
+	box-sizing: border-box;
+	&::before,
+	&::after {
+		box-sizing: border-box;
+	}
+}
+
+.centered {
+	text-align: center;
+}
+
+.has-cover {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
