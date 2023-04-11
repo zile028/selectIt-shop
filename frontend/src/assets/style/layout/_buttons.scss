@@ -20,18 +20,3 @@ button {
 		outline: none;
 	}
 }
-
-.btn {
-	font-size: 16px;
-	line-height: 24px;
-	font-family: $font-default;
-	font-weight: 600;
-	color: $black;
-	padding: 13px 35px;
-	outline: 0;
-	border: 1px solid $black;
-	position: relative;
-	background-color: rgba(0, 0, 0, 0);
-	user-select: none;
-	touch-action: manipulation;
-}
