@@ -4,6 +4,7 @@ class UserServices {
 
     static register = (body) => axios.post("/user/register", body)
     static getUser = (body) => axios.post("/user", body)
+    //static sendMessage = (body) => axios.post("/...", body)
 
 }
 

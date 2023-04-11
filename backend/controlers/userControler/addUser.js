@@ -1,6 +1,7 @@
 const UserModel = require("../../model/userModel");
 
 const addUser = (req, res) => {
+   
     let user = {
         firstName: "Marko",
         lastName: "Petrovic",
