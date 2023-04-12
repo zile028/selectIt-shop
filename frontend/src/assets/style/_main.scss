@@ -25,12 +25,16 @@
 /* --------------------------------------------------------------
 # Layout
 -------------------------------------------------------------- */
+@import 'layout/buttons';
 @import 'layout/homePage';
+@import '../../pages/ContactPage/contactPage';
 
 
 /* --------------------------------------------------------------
-# Components
+//# Components
 -------------------------------------------------------------- */
+@import '../../component/ContactForm/contactForm';
+@import '../../component/ContactInfo/contactInfo';
 // @import 'modules/homePage';
 // @import 'modules/cookie';
 

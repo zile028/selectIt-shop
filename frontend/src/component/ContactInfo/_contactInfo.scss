@@ -1,0 +1,27 @@
+.contact__info {
+    width: 50%;
+
+    @include media-breakpoint-down(md) {
+        width: 100%;
+    }
+}
+
+.contact__data-info {
+    margin-bottom: 50px;
+}
+
+.contact__title {
+    font-size: 25px;
+    color: $black;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.contact__text {
+    color: $grey-lighter;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    line-height: 26px;
+}

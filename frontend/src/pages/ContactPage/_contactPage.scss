@@ -1,0 +1,13 @@
+
+.contact__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-start;
+    padding: 100px 0; 
+
+    @include media-breakpoint-down(md) {
+        flex-direction: column;
+    }
+}

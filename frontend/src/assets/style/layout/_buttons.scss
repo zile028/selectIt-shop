@@ -20,3 +20,27 @@ button {
 		outline: none;
 	}
 }
+
+.button {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 12px 30px;
+    text-transform: uppercase;
+
+	@include animation {
+		transition: all 1s ease 0s;
+	}
+}
+
+.button--primary {
+	background-color: $green;
+    border: 1px solid $green;
+	color: $white;
+
+	@include hover {
+		background-color: transparent;
+		border: 1px solid $green;
+		color: $green;
+	}
+}
