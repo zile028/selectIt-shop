@@ -1,8 +1,11 @@
-import React from "react";
+import {
+  MdOutlineLocationOn,
+  MdOutlineMailOutline,
+  MdInfoOutline,
+  MdMobileFriendly,
+} from "react-icons/md";
 
 const ContactInfo = () => {
-
-
   return (
     <div className="contact__info">
       <h3 className="contact__title">Contact information</h3>
@@ -21,36 +24,43 @@ const ContactInfo = () => {
       </div>
 
       <div className="contact__stack stack">
-
         <div className="contact__data">
-            <span className="icon">ico-location</span>
-            <p>09 Downtown, Store Main St,Victoria, Australia</p>
+          <span className="contact__icon">
+            <MdOutlineLocationOn />
+          </span>
+          <p className="contact__subtext">09 Downtown, Store Main St,Victoria, Australia</p>
         </div>
 
         <div className="contact__data">
-            <span className="icon">ico-map</span>
-            <p>09 Downtown, Store Main St,Victoria, Australia</p>
+          <span className="contact__icon">
+            <MdInfoOutline />
+          </span>
+          <p className="contact__subtext">09 Downtown, Store Main St,Victoria, Australia</p>
         </div>
 
         <div className="contact__data">
-            <span className="icon">ico-mail</span>
-            <p>
-              <a href="mailto:info@ourdomain.com" title="Info@ourdomain.com">
-                Info@ourdomain.com
-              </a>
-            </p>
-            <p>
-              <a href="mailto:Support@ourdomain.com" title="Support@ourdomain.com">
-                Support@ourdomain.com
-              </a>
-            </p>
+          <span className="contact__icon">
+            <MdOutlineMailOutline />
+          </span>
+          <div className="contact__subtext">
+            <a href="mailto:info@ourdomain.com" title="Info@ourdomain.com">
+            Info@ourdomain.com
+            </a>
+            <a
+            href="mailto:Support@ourdomain.com"
+            title="Support@ourdomain.com"
+            >
+            Support@ourdomain.com
+            </a>
+          </div>
         </div>
 
         <div className="contact__data">
-            <span className="icon">ico-info</span>
-            <p>Free standard shipping on all orders</p>
+          <span className="contact__icon">
+            <MdMobileFriendly />
+          </span>
+          <p className="contact__subtext">Free standard shipping on all orders</p>
         </div>
-
       </div>
     </div>
   );
