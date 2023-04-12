@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// const contactDbUrl = 'mongodb+srv://selectItConnect:dHT26w1aoEQBefmD@selectitconect.ljwujod.mongodb.net/?retryWrites=true&w=majority';
+
 
 const contactDbUrl = require("./contactConfigDb")
 

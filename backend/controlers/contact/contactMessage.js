@@ -1,4 +1,4 @@
-const ContactModal = require('../contact/contactMessage')
+const ContactModel = require('../contact/contactModel')
 
 const contactMessage = (req, res) => {
     const { name, email, subject, message } = req.body
@@ -10,7 +10,7 @@ const contactMessage = (req, res) => {
         message,
     }
 
-    const newMessage = new ContactModal(contactMessage)
+    const newMessage = new ContactModel(contactMessage)
 
     newMessage.save().then((savedMessage) => {
         console.log(savedMessage)

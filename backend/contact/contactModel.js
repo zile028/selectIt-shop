@@ -1,7 +1,7 @@
 
 const mongoose = require("mongoose")
 
-const ContactMessageSchema = mongoose.Schema({
+const ContactMessageSchema = new mongoose.Schema({
 
      name: {type:String, required: true},
      email: {type:String, required: true},
@@ -11,5 +11,5 @@ const ContactMessageSchema = mongoose.Schema({
 
 })
 
-const ContactMessage = mongoose.modal("ContactMessage", ContactMessageSchema)
-model.exports = ContactMessage
+const ContactModel = mongoose.model("ContactMessage", ContactMessageSchema)
+module.exports = ContactModel
