@@ -20,6 +20,12 @@ const ContactForm = () => {
     ContactServices.contactMessage(inputData)
             .then((res) => {
                 console.log(res)
+                setInputData({
+                  name: "",
+                  email: "",
+                  subject: "",
+                  message: "",
+              });
             })
             .catch((err) => {
                 console.log("GRESKA")
