@@ -1,8 +1,8 @@
 
-const username = 'filipjovicccc'
+const username = 'selectItConnect'
 
-const password = 'UR8BiLZXXFO63Tih'
+const password = 'dHT26w1aoEQBefmD'
 
-const contactDbUrl = `mongodb+srv://filipjovicccc:UR8BiLZXXFO63Tih@cluster0.ppeg7qt.mongodb.net/?retryWrites=true&w=majority`
+const contactDbUrl = `mongodb+srv://${username}:${password}@selectitconect.ljwujod.mongodb.net/?retryWrites=true&w=majority`
 
-module.export = contactDbUrl
+module.exports = contactDbUrl

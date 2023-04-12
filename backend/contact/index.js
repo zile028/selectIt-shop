@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-const contactDbUrl = 'mongodb+srv://filipjovicccc:UR8BiLZXXFO63Tih@cluster0.ppeg7qt.mongodb.net/?retryWrites=true&w=majority';
+// const contactDbUrl = 'mongodb+srv://selectItConnect:dHT26w1aoEQBefmD@selectitconect.ljwujod.mongodb.net/?retryWrites=true&w=majority';
+
+const contactDbUrl = require("./contactConfigDb")
 
 const connectContactDB = async () => {
   try {
@@ -7,7 +9,7 @@ const connectContactDB = async () => {
     console.log('Contact database connected');
   } catch (error) {
     console.log(error);
-    process.exit(1);
+  
   }
 };
 
