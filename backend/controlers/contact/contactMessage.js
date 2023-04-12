@@ -1,4 +1,4 @@
-const ContactModel = require('../contact/contactModel')
+const ContactModel = require('../../model/contactModel');
 
 const contactMessage = (req, res) => {
     const { name, email, subject, message } = req.body

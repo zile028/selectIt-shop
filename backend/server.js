@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 const cors = require("cors")
 const app = express()
 const dbUrl = require("./config/configDb")
-const connectContactDB = require('./contact');
+const connectContactDB = require('./controlers/contact');
 
 
 app.use(cors())
