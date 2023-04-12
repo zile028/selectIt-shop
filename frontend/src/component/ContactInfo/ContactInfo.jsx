@@ -19,8 +19,8 @@ const ContactInfo = () => {
           the clouds away.
         </p>
       </div>
-      
-      <div className="contact__stack">
+
+      <div className="contact__stack stack">
 
         <div className="contact__data">
             <span className="icon">ico-location</span>
