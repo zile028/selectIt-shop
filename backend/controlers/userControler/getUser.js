@@ -1,7 +1,7 @@
 const UserModel = require("../../model/userModel");
 
 const getUser = (req, res) => {
-    UserModel.findOne({firstName: req.params.firstName})
+    UserModel.findOne({email: req.params.email})
         .then((users) => {
             res.send(users)
         })

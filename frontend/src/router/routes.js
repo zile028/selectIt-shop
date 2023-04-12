@@ -6,7 +6,9 @@ export const routes = {
         path: "/product/:id",
         realPath: (id) => "/product/" + id
     },
-    REGISTER: {path: "/register", name: "Register"}
+    REGISTER: {path: "/register", name: "Register"},
+    ACTIVATE_ACCOUNT: {path: "/activate/:id"},
+    LOGIN: {path: "/login", name: "Login"}
 }
 
-export const mainNavbarItem = [routes.HOME, routes.SHOP, routes.CONTACT, routes.REGISTER]
+export const mainNavbarItem = [routes.HOME, routes.SHOP, routes.CONTACT, routes.REGISTER, routes.LOGIN]
