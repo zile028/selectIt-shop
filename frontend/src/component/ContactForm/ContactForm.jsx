@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import ContactServices from "../../services/ContactServices";
+
 
 const ContactForm = () => {
-    
+
   const [inputData, setInputData] = useState({
     name: "",
     email: "",
@@ -15,6 +17,15 @@ const ContactForm = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    ContactServices.contactMessage(inputData)
+            .then((res) => {
+                console.log(res)
+            })
+            .catch((err) => {
+                console.log("GRESKA")
+                console.log(err)
+            })
+    
   };
 
   return (
