@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ContactServices from "../../services/ContactServices";
-
+import { FaCheck } from "react-icons/fa";
 
 const ContactForm = () => {
 
@@ -10,28 +10,43 @@ const ContactForm = () => {
     subject: "",
     message: "",
   });
+  const [isNameValid, setIsNameValid] = useState(true);
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [isMessageSent, setIsMessageSent] = useState('');
 
   const inputHandler = (e) => {
     setInputData({ ...inputData, [e.target.name]: e.target.value });
   };
 
+  const isFormValid = (data) => {
+
+    !data.name ? setIsNameValid(false) : setIsNameValid(true);
+    !data.email.includes('@' && '.') ? setIsEmailValid(false) : setIsEmailValid(true);
+
+    if (data.email.includes('@' && '.') && data.name !== '') {
+      return true;
+    } 
+  }
+
   const submitHandler = (e) => {
     e.preventDefault();
-    ContactServices.contactMessage(inputData)
-            .then((res) => {
-                console.log(res)
-                setInputData({
-                  name: "",
-                  email: "",
-                  subject: "",
-                  message: "",
-              });
-            })
-            .catch((err) => {
-                console.log("GRESKA")
-                console.log(err)
-            })
-    
+    let validation = isFormValid(inputData);
+
+    if (validation) {
+      ContactServices.contactMessage(inputData)
+          .then((res) => {
+              setIsMessageSent(true);
+              setInputData({
+                name: "",
+                email: "",
+                subject: "",
+                message: "",
+            });
+          })
+          .catch((err) => {
+              setIsMessageSent(false)
+        })
+      }
   };
 
   return (
@@ -40,7 +55,11 @@ const ContactForm = () => {
       <form className="form__contact" onSubmit={submitHandler}>
         <div className="form__row">
           <div className="form__input form__input--separated">
-            <label className="form__label" htmlFor="name">
+            <label 
+              className="form__label" 
+              htmlFor="name" 
+              style={isNameValid ? { color: "" } : { color: "#f95959" }}
+            >
               Your name *
             </label>
             <input
@@ -50,11 +69,17 @@ const ContactForm = () => {
               className="form__input-text"
               value={inputData.name}
               onInput={inputHandler}
+              style={isNameValid ? { borderColor: "" } : { borderColor: "#f95959" }}
             />
+            <p className="form__input-error">{isNameValid ? '' : "Name is required."}</p>
           </div>
 
           <div className="form__input">
-            <label className="form__label" htmlFor="email">
+            <label 
+              className="form__label" 
+              htmlFor="email" 
+              style={isEmailValid ? { color: "" } : { color: "#f95959" }}
+            >
               Your email *
             </label>
             <input
@@ -64,7 +89,9 @@ const ContactForm = () => {
               className="form__input-text"
               value={inputData.email}
               onInput={inputHandler}
+              style={isEmailValid ? { borderColor: "" } : { borderColor: "#f95959" }}
             />
+            <p className="form__input-error">{isEmailValid ? '' : "Email is not valid."}</p>
           </div>
         </div>
 
@@ -104,6 +131,18 @@ const ContactForm = () => {
           Send a message
         </button>
       </form>
+
+      {
+        isMessageSent && (
+            <>
+                <div className="form__confirmation">
+                  <span className="form__icon-check"><FaCheck /></span>
+                  <p className="form__msg">Your message has been sent.</p>
+                </div>
+            </>
+        )
+        }
+      
     </div>
   );
 };
