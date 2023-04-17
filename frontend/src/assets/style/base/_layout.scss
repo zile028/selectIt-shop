@@ -1,0 +1,17 @@
+// ----------  layout
+// ------------------------------------------------------------------------------
+
+body {
+	font-size: 14px;
+	font-weight: 400;
+	color: $black;
+	background-color: $grey-light;
+	font-family: $font-default;
+}
+
+.wrap {
+	margin: 0 auto;
+	max-width: 980px;
+	padding: 0 20px;
+	width: 100%;
+}

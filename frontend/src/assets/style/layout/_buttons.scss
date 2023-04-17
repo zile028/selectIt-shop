@@ -1,0 +1,22 @@
+// ---------- buttons
+// ------------------------------------------------------------------------------
+
+button,
+input[type='button'],
+input[type='submit'] {
+	background: none;
+	border: 0;
+	cursor: pointer;
+	outline: none;
+	padding: 0;
+}
+
+a,
+button {
+	appearance: none;
+	outline: none;
+
+	&:focus {
+		outline: none;
+	}
+}

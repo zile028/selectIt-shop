@@ -2,8 +2,8 @@ import HomePage from "../pages/HomePage/HomePage";
 import ShopPage from "../pages/ShopPage/ShopPage";
 import {routes} from "./routes";
 import RegisterPage from "../pages/RegisterPage/RegisterPage";
-import ActivateAccountPage from "../pages/ActivateAccountPage/ActivateAccountPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
+import Contact from "../pages/Contact/Contact";
 
 export const appChildren = [
     {
@@ -15,15 +15,15 @@ export const appChildren = [
         element: <ShopPage/>
     },
     {
-        path: routes.REGISTER.path,
+        path: "/register",
         element: <RegisterPage/>
     },
     {
-        path: routes.ACTIVATE_ACCOUNT.path,
-        element: <ActivateAccountPage/>
+        path: "/login",
+        element: <LoginPage/>
     },
     {
-        path: routes.LOGIN.path,
-        element: <LoginPage/>
-    }
+        path: routes.CONTACT.path,
+        element: <Contact/>
+    },
 ]
