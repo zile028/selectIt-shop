@@ -1,5 +1,7 @@
 import React, {useEffect} from 'react';
 import UserServices from "../../services/UserServices";
+import Heading from '../../component/Heading/Heading';
+import bgImage from "../../assets/images/contactbanner.jpg"
 
 function HomePage() {
 
@@ -12,7 +14,10 @@ function HomePage() {
 
 
     return (
-        <div>HOME</div>
+        <>
+            <Heading title="Home page" bgImage={bgImage} />
+            <div>HOME</div>
+        </>
     );
 }
 

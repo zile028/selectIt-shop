@@ -29,7 +29,6 @@
 @import 'layout/homePage';
 @import '../../pages/ContactPage/contactPage';
 
-
 /* --------------------------------------------------------------
 //# Components
 -------------------------------------------------------------- */
@@ -39,4 +38,5 @@
 // @import 'modules/homePage';
 // @import 'modules/cookie';
 
-@import './registerForm'
+@import './registerForm';
+@import "../../component/Heading/heading";
