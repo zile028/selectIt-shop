@@ -1,1 +1,42 @@
-@import "homePage";
+/* --------------------------------------------------------------
+# Config
+-------------------------------------------------------------- */
+@use 'sass:math';
+@import 'config/reset';
+@import 'config/variables';
+
+/* --------------------------------------------------------------
+# Breakpoints
+-------------------------------------------------------------- */
+@import 'base/breakpoints';
+
+/* --------------------------------------------------------------
+# Helpers
+-------------------------------------------------------------- */
+@import 'helpers/mixins';
+@import 'helpers/helpers';
+
+/* --------------------------------------------------------------
+# Base
+-------------------------------------------------------------- */
+@import 'base/typography';
+@import 'base/layout';
+
+/* --------------------------------------------------------------
+# Layout
+-------------------------------------------------------------- */
+@import 'layout/buttons';
+@import 'layout/homePage';
+@import '../../pages/ContactPage/contactPage';
+
+
+/* --------------------------------------------------------------
+//# Components
+-------------------------------------------------------------- */
+@import '../../component/ContactForm/contactForm';
+@import '../../component/ContactInfo/contactInfo';
+@import '../../component/ContactMap/contactMap';
+// @import 'modules/homePage';
+// @import 'modules/cookie';
+
+@import './registerForm'
