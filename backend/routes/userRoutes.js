@@ -15,6 +15,7 @@ function verifyToken(req, res, next) {
 router.get("/addUser", require("../controlers/userControler/addUser"))
 router.get("/allUsers", require("../controlers/userControler/getAllUsers"))
 router.get("/:email", verifyToken, require("../controlers/userControler/getUser"))
+router.get("/:firstName", require("../controlers/userControler/getUser"));
 
 /***** POST *****/
 router.post("/register", require("../controlers/userControler/register"))
