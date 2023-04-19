@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import "../../assets/style/_loginForm.scss";
-
+import "./_loginForm.scss";
+import { routes } from "../../router/routes";
 const LoginPage = () => {
   const formik = useFormik({
     initialValues: { email: "", password: "" },
@@ -29,7 +29,7 @@ const LoginPage = () => {
             soluta voluptatum facere vel!
           </p>
           <span>Don't you have an account?</span>
-          <Link to="/register">
+          <Link to={routes.REGISTER.path}>
             <button>Register</button>
           </Link>
         </div>

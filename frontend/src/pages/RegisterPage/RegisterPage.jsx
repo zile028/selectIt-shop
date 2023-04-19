@@ -2,40 +2,35 @@ import React, { useState } from "react";
 import UserServices from "../../services/UserServices";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
-import "./register.scss";
+import "./_registerForm.scss";
 import { useFormik } from "formik";
+import { routes } from "../../router/routes";
 function RegisterPage() {
   const formik = useFormik({
     initialValues: { firstName: "", lastName: "", password: "", email: "" },
-    validationSchema: Yup.object({}),
+    validationSchema: Yup.object({
+      firstName: Yup.string().min(3).max(35).required("First name is required"),
+      lastName: Yup.string().min(3).max(35).required("Last name is required"),
+      email: Yup.string()
+        .email("Invalid email format")
+        .required("Email is required"),
+      password: Yup.string().required("Password is required"),
+    }),
     onSubmit: (values) => {
       console.log(values);
+      UserServices.register(values)
+        .then((res) => {
+          if (res.status === 201) {
+            console.log(res.data.msg);
+          }
+        })
+        .catch((err) => {
+          console.log("GRESKA");
+          console.log(err);
+        });
     },
   });
-  const [inputData, setInputData] = useState({
-    firstName: "",
-    lastName: "",
-    password: "",
-    email: "",
-  });
 
-  const inputHandler = (e) => {
-    setInputData({ ...inputData, [e.target.name]: e.target.value });
-  };
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    UserServices.register(inputData)
-      .then((res) => {
-        if (res.status === 201) {
-          console.log(res.data.msg);
-        }
-      })
-      .catch((err) => {
-        console.log("GRESKA");
-        console.log(err);
-      });
-  };
 
   return (
     <div className="register">
@@ -48,43 +43,67 @@ function RegisterPage() {
             soluta voluptatum facere vel!
           </p>
           <span>Do you have an account?</span>
-          <Link to="/login">
+          <Link to={routes.LOGIN.path}>
             <button>Login</button>
           </Link>
         </div>
         <div className="right">
           <h1>Register</h1>
-          <form onSubmit={submitHandler}>
+          <form onSubmit={formik.handleSubmit}>
+            <label htmlFor="firstName">
+              {formik.errors.firstName && (
+                <div className="error">{formik.errors.firstName}</div>
+              )}
+            </label>
             <input
               type="text"
               name="firstName"
+              id="firstName"
               placeholder="First Name"
-              onChange={inputHandler}
-              value={inputData.firstName}
+              onChange={formik.handleChange}
+              value={formik.values.firstName}
             />
+            <label htmlFor="lastName">
+              {formik.errors.lastName && (
+                <div className="error">{formik.errors.lastName}</div>
+              )}
+            </label>
             <input
               type="text"
               name="lastName"
+              id="lastName"
               placeholder="Last Name"
-              onChange={inputHandler}
-              value={inputData.lastName}
+              onChange={formik.handleChange}
+              value={formik.values.lastName}
             />
+            <label htmlFor="email">
+              {formik.errors.email && (
+                <div className="error">{formik.errors.email}</div>
+              )}
+            </label>
             <input
               type="text"
               name="email"
+              id="email"
               placeholder="Email"
-              onChange={inputHandler}
-              value={inputData.email}
+              onChange={formik.handleChange}
+              value={formik.values.email}
             />
+            <label htmlFor="password">
+              {formik.errors.password && (
+                <div className="error">{formik.errors.password}</div>
+              )}
+            </label>
             <input
               type="password"
               name="password"
+              id="password"
               placeholder="Password"
-              onChange={inputHandler}
-              value={inputData.password}
+              onChange={formik.handleChange}
+              value={formik.values.password}
             />
 
-            <button>Register</button>
+            <button type="submit">Register</button>
           </form>
         </div>
       </div>

@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   height: 100vh;
-  background-color: rgb(193, 190, 255);
+  background-color: rgb(29, 170, 163);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,10 +60,16 @@
         display: flex;
         flex-direction: column;
         gap: 30px;
+
         label {
           padding: 0px 10px;
+          position: relative;
           .error {
             color: red;
+            position: absolute;
+            top: 50px;
+            left: 150px;
+            
           }
         }
         input {
