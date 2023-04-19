@@ -29,6 +29,6 @@ export const appChildren = [
     },
     {
         path: routes.CONTACT.path,
-        element: <ContactPage />
-    }
+        element: <ContactPage/>
+    },
 ]

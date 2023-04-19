@@ -12,13 +12,15 @@ const contactMessage = (req, res) => {
 
     const newMessage = new ContactModel(contactMessage)
 
-    newMessage.save().then((savedMessage) => {
-        console.log(savedMessage)
-    }).catch((error) => {
-        console.log(error)
-    })
-    //TODO send response if ok and if have error
-    res.send("OK")
+    newMessage.save()
+        .then((savedMessage) => {
+            console.log(savedMessage)
+            res.status(200).json({success: true, message: 'Contact message saved successfully.'})
+        })
+        .catch((error) => {
+            console.log(error)
+            res.status(500).json({success: false, message: 'Error saving contact message.'})
+        })
 }
 
 module.exports = contactMessage

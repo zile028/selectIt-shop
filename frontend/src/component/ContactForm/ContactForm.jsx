@@ -1,18 +1,37 @@
 import React, {useState} from "react";
 import ContactServices from "../../services/ContactServices";
-import {FaCheck} from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const validateEmail = (email) => {
+    var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  }
 
 const ContactForm = () => {
-
-    const [inputData, setInputData] = useState({
+    const initialState = {
         name: "",
         email: "",
         subject: "",
         message: "",
-    });
+    }
+
+    const [inputData, setInputData] = useState(initialState);
     const [isNameValid, setIsNameValid] = useState(true);
     const [isEmailValid, setIsEmailValid] = useState(true);
     const [isMessageSent, setIsMessageSent] = useState(false);
+
+    const notify = () => toast.success('Your message was sent.', {
+            position: "bottom-left",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        }
+    );
 
     const inputHandler = (e) => {
         setInputData({...inputData, [e.target.name]: e.target.value});
@@ -21,9 +40,9 @@ const ContactForm = () => {
     const isFormValid = (data) => {
 
         !data.name ? setIsNameValid(false) : setIsNameValid(true);
-        !data.email.includes('@' && '.') ? setIsEmailValid(false) : setIsEmailValid(true);
+        !validateEmail(data.email) ? setIsEmailValid(false) : setIsEmailValid(true);
 
-        if (data.email.includes('@' && '.') && data.name !== '') {
+        if (validateEmail(data.email) && data.name !== '') {
             return true;
         }
     }
@@ -36,12 +55,8 @@ const ContactForm = () => {
             ContactServices.contactMessage(inputData)
                 .then((res) => {
                     setIsMessageSent(true);
-                    setInputData({
-                        name: "",
-                        email: "",
-                        subject: "",
-                        message: "",
-                    });
+                    notify()
+                    setInputData(initialState);
                 })
                 .catch((err) => {
                     setIsMessageSent(false)
@@ -60,7 +75,7 @@ const ContactForm = () => {
                             htmlFor="name"
                             style={isNameValid ? {color: ""} : {color: "#f95959"}}
                         >
-                            Your name *
+                            {isNameValid ? "Your name *" : "Name is required."}
                         </label>
                         <input
                             type="text"
@@ -71,7 +86,6 @@ const ContactForm = () => {
                             onInput={inputHandler}
                             style={isNameValid ? {borderColor: ""} : {borderColor: "#f95959"}}
                         />
-                        <p className="form__input-error">{isNameValid ? '' : "Name is required."}</p>
                     </div>
 
                     <div className="form__input">
@@ -80,7 +94,7 @@ const ContactForm = () => {
                             htmlFor="email"
                             style={isEmailValid ? {color: ""} : {color: "#f95959"}}
                         >
-                            Your email *
+                            {isEmailValid ? "Your email *" : "Email is not valid."}
                         </label>
                         <input
                             type="text"
@@ -91,7 +105,6 @@ const ContactForm = () => {
                             onInput={inputHandler}
                             style={isEmailValid ? {borderColor: ""} : {borderColor: "#f95959"}}
                         />
-                        <p className="form__input-error">{isEmailValid ? '' : "Email is not valid."}</p>
                     </div>
                 </div>
 
@@ -134,12 +147,18 @@ const ContactForm = () => {
 
             {
                 isMessageSent && (
-                    <>
-                        <div className="form__confirmation">
-                            <span className="form__icon-check"><FaCheck/></span>
-                            <p className="form__msg">Your message has been sent.</p>
-                        </div>
-                    </>
+                    <ToastContainer
+                        position="bottom-left"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="light"
+                    />
                 )
             }
 
