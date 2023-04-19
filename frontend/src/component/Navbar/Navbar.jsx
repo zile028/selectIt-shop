@@ -2,8 +2,12 @@ import React from "react";
 import {Link, NavLink} from "react-router-dom";
 import {mainNavbarItem, routes} from "../../router/routes";
 import Dorpdown from "./Dorpdown";
+import {useDispatch, useSelector} from "react-redux";
+import {logoutUser} from "../../store/userSlice";
 
 function Navbar() {
+    const {user} = useSelector((store) => store.userStore)
+    const dispatch = useDispatch()
     return (
         <>
             <div id="top-header">
@@ -32,11 +36,27 @@ function Navbar() {
                             </div>
                             <div className="language-dropdown">
                                 <button className="btn dropdown-toggle" type="button" id="Username" title="Username"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">My Account<span
-                                    className="caret"></span></button>
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    {user.hasOwnProperty("email") ? user.firstName : "My Account"}
+                                    <span className="caret"></span>
+                                </button>
                                 <ul>
-                                    <li><NavLink to="login" title="login">Login</NavLink></li>
-                                    <li><NavLink to="/register" title="register">Register</NavLink></li>
+                                    {user.hasOwnProperty("email") ?
+                                        <>
+                                            <li>
+                                                <li><NavLink to={routes.DASHBOARD.path}
+                                                             title="login">Dashboard
+                                                </NavLink></li>
+                                                <button onClick={() => dispatch(logoutUser())}>Logout</button>
+                                            </li>
+                                        </> :
+                                        <>
+                                            <li><NavLink to={routes.LOGIN.path} title="login">Login</NavLink></li>
+                                            <li><NavLink to={routes.REGISTER.path} title="register">Register</NavLink>
+                                            </li>
+                                        </>
+
+                                    }
 
                                 </ul>
                             </div>

@@ -70,6 +70,7 @@ export const routes = {
         ]
     },
     CONTACT: {path: "/contact", name: "Contact us"},
+    DASHBOARD: {path: "/dashboard"}
 }
 
 export const mainNavbarItem = [

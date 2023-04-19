@@ -1,8 +1,15 @@
 import React, {useState} from 'react';
 import UserServices from "../../services/UserServices";
-import {LS_KEY} from "../../config/config";
+import {LS_TOKEN} from "../../config/config";
+import {useDispatch} from "react-redux";
+import {setUser} from "../../store/userSlice";
+import {toast, ToastContainer} from "react-toastify";
+import {useNavigate} from "react-router-dom";
+import {routes} from "../../router/routes";
 
 function LoginPage() {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const [inputData, setInputData,] = useState({
         password: "",
         email: "",
@@ -19,8 +26,12 @@ function LoginPage() {
                 if (res.status === 201) {
                     console.log(res.data.msg)
                 } else {
-                    console.log(res.data)
-                    localStorage.setItem(LS_KEY, res.data.token)
+                    dispatch(setUser(res.data.user))
+                    localStorage.setItem(LS_TOKEN, res.data.token)
+                    toast.success("You are logged")
+                    setTimeout(() => {
+                        navigate(routes.DASHBOARD.path)
+                    }, 3000)
                 }
             })
             .catch((err) => {
@@ -56,9 +67,9 @@ function LoginPage() {
                     </div>
                 </div>
                 <div className="col-6">
-
                 </div>
             </div>
+            <ToastContainer/>
         </div>
     );
 }
