@@ -1,7 +1,17 @@
 import React, { useState } from "react";
 import UserServices from "../../services/UserServices";
+import { Link } from "react-router-dom";
+import * as Yup from "yup";
 import "./register.scss";
+import { useFormik } from "formik";
 function RegisterPage() {
+  const formik = useFormik({
+    initialValues: { firstName: "", lastName: "", password: "", email: "" },
+    validationSchema: Yup.object({}),
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
   const [inputData, setInputData] = useState({
     firstName: "",
     lastName: "",
@@ -31,14 +41,16 @@ function RegisterPage() {
     <div className="register">
       <div className="card">
         <div className="left">
-          <h1>Lama Social</h1>
+          <h1>SELECTIT SHOP</h1>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores
             eligendi voluptate magni accusantium distinctio alias, officiis
             soluta voluptatum facere vel!
           </p>
           <span>Do you have an account?</span>
-          <button>Login</button>
+          <Link to="/login">
+            <button>Login</button>
+          </Link>
         </div>
         <div className="right">
           <h1>Register</h1>

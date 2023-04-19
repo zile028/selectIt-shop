@@ -1,25 +1,28 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./login.scss";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import "../../assets/style/_loginForm.scss";
 
 const LoginPage = () => {
-  const [inputData, setInputData] = useState({
-    email: "",
-    password: "",
+  const formik = useFormik({
+    initialValues: { email: "", password: "" },
+    validationSchema: Yup.object({
+      email: Yup.string()
+        .email("Invalid email format")
+        .required("Email is required"),
+      password: Yup.string().required("Password is required"),
+    }),
+    onSubmit: (values) => {
+      console.log(values);
+      ///handle UserService.login here
+    },
   });
-
-  const inputHandler = (e) => {
-    setInputData({ ...inputData, [e.target.name]: e.target.value });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(inputData);
-  };
   return (
     <div className="login">
       <div className="card">
         <div className="left">
-          <h1>Hello World.</h1>
+          <h1>SELECTIT SHOP</h1>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores
             eligendi voluptate magni accusantium distinctio alias, officiis
@@ -32,22 +35,34 @@ const LoginPage = () => {
         </div>
         <div className="right">
           <h1>Login</h1>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={formik.handleSubmit}>
+            <label htmlFor="email">
+              {formik.errors.email && (
+                <div className="error">{formik.errors.email}</div>
+              )}
+            </label>
             <input
               type="email"
               name="email"
+              id="email"
               placeholder="Email"
-              onChange={inputHandler}
-              value={inputData.email}
+              onChange={formik.handleChange}
+              value={formik.values.email}
             />
+            <label htmlFor="password">
+              {formik.errors.password && (
+                <div className="error">{formik.errors.password}</div>
+              )}
+            </label>
             <input
               type="password"
               name="password"
+              id="password"
               placeholder="Password"
-              onChange={inputHandler}
-              value={inputData.password}
+              onChange={formik.handleChange}
+              value={formik.values.password}
             />
-            <button>Login</button>
+            <button type="submit">Login</button>
           </form>
         </div>
       </div>
