@@ -4,6 +4,7 @@ import {routes} from "./routes";
 import RegisterPage from "../pages/RegisterPage/RegisterPage";
 import ActivateAccountPage from "../pages/ActivateAccountPage/ActivateAccountPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
+import ContactPage from "../pages/ContactPage/ContactPage";
 
 export const appChildren = [
     {
@@ -25,5 +26,9 @@ export const appChildren = [
     {
         path: routes.LOGIN.path,
         element: <LoginPage/>
-    }
+    },
+    {
+        path: routes.CONTACT.path,
+        element: <ContactPage/>
+    },
 ]
