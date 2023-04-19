@@ -1,0 +1,8 @@
+.products__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 60px 0;
+    justify-content: space-between;
+}
