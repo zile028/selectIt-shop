@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const ProductDetails = ({ product }) => {
   const [quantity, setQuantity] = useState(0);
+  const [mainImage, setMainImage] = useState(0);
 
   const increaseQuantity = () => {
     setQuantity(quantity + 1);
@@ -13,15 +14,20 @@ const ProductDetails = ({ product }) => {
     }
   };
 
+  const renderMainImage = (index) => {
+    setMainImage(index)
+  }
+
   const renderedImages = () => {
     return product.images?.map((image, index) => {
       return (
-        <img
-          src={image}
-          key={index}
-          alt="Product various images"
-          className="single-product__image"
-        />
+        <button type="button" key={index} onClick={() => renderMainImage(index)}>
+          <img
+            src={image}
+            alt="Product various images"
+            className={`single-product__image ${mainImage === index ? 'single-product__image--active' : null}`}
+          />
+        </button>
       );
     });
   };
@@ -30,11 +36,12 @@ const ProductDetails = ({ product }) => {
     <div className="single-product__details">
       <div className="single-product__content-left">
         <div className="single-product__img-holder">
-          <img
-            src={product.thumbnail}
+          {product.images && <img
+            src={product.images[mainImage]}
             alt={product.title}
             className="single-product__img"
-          />
+          /> }
+          
         </div>
         <div className="single-product__images">{renderedImages()}</div>
       </div>

@@ -25,10 +25,13 @@
 .single-product__img-holder {
     margin-bottom: 20px;
     max-width: 500px;
+    object-fit: cover;
+    min-height: 500px;
 }
 
 .single-product__img {
     width: 100%;
+    object-fit: cover;
 }
 
 .single-product__images {
@@ -37,9 +40,14 @@
 }
 
 .single-product__image {
-    width: 50px;
+    width: 100px;
     object-fit: cover;
     margin-right: 20px;
+    padding: 10px;
+}
+
+.single-product__image--active {
+    border: 2px solid #1daaa3;
 }
 
 .single-product__content-right {
