@@ -4,6 +4,7 @@ import ProductService from "../../services/productService";
 import Heading from '../../component/Heading/Heading';
 import bgImage from "../../assets/images/shopbanner.jpg"
 import ProductCard from '../../component/ProductCard/ProductCard';
+import Sidebar from '../../component/SIdebar/Sidebar';
 
 function ShopPage() {
     const [products, setProducts] = useState([])
@@ -60,8 +61,14 @@ function ShopPage() {
     return (
         <>
             <Heading title="OUR PRODUCTS" bgImage={bgImage}></Heading>
-            <section className="container">
+           
+         
+            <section className="container products_content"> 
 
+            <Sidebar />
+            <div>
+
+            
                 <div className="products__container">
                     {renderedProducts()}
                 </div>
@@ -81,6 +88,7 @@ function ShopPage() {
                         </li>
                     </ul>
                 </nav>
+            </div>
             </section>
         </>
     );

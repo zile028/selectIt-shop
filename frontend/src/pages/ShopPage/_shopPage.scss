@@ -1,8 +1,17 @@
-.products__container {
+.products_content{
+
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    padding: 60px 0;
-    justify-content: space-between;
+    gap:20px;
+
+
+
+    .products__container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 60px 0;
+        justify-content: space-between;
+    }
+
 }
