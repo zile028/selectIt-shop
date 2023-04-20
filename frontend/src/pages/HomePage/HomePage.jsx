@@ -1,5 +1,6 @@
 import React from 'react';
 import Subscribe from "../../component/Subscribe/Subscribe";
+import Testimonial from '../../component/Testimonial/Testimonial';
 
 function HomePage() {
 
@@ -8,6 +9,7 @@ function HomePage() {
         <>
             <div>HOME</div>
             <Subscribe />
+            <Testimonial />
         </>
     );
 }
