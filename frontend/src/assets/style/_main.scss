@@ -1,44 +1,45 @@
 /* --------------------------------------------------------------
 # Config
 -------------------------------------------------------------- */
-@use 'sass:math';
-@import 'config/reset';
-@import 'config/variables';
+@use "sass:math";
+@import "config/reset";
+@import "config/variables";
 
 /* --------------------------------------------------------------
 # Breakpoints
 -------------------------------------------------------------- */
-@import 'base/breakpoints';
+@import "base/breakpoints";
 @import "subscribe";
 
 /* --------------------------------------------------------------
 # Helpers
 -------------------------------------------------------------- */
-@import 'helpers/mixins';
-@import 'helpers/helpers';
+@import "helpers/mixins";
+@import "helpers/helpers";
 
 /* --------------------------------------------------------------
 # Base
 -------------------------------------------------------------- */
-@import 'base/typography';
-@import 'base/layout';
+@import "base/typography";
+@import "base/layout";
 
 /* --------------------------------------------------------------
 # Layout
 -------------------------------------------------------------- */
-@import 'layout/buttons';
-@import 'layout/homePage';
-@import '../../pages/ContactPage/contactPage';
+@import "layout/buttons";
+@import "layout/homePage";
+@import "../../pages/ContactPage/contactPage";
 
 /* --------------------------------------------------------------
 //# Components
 -------------------------------------------------------------- */
-@import '../../component/ContactForm/contactForm';
-@import '../../component/ContactInfo/contactInfo';
-@import '../../component/ContactMap/contactMap';
+@import "../../component/ContactForm/contactForm";
+@import "../../component/ContactInfo/contactInfo";
+@import "../../component/ContactMap/contactMap";
 // @import 'modules/homePage';
 // @import 'modules/cookie';
 
-@import './registerForm';
+@import "./registerForm";
 @import "../../component/Heading/heading";
-@import './navbarstyle';
+@import "./navbarstyle";
+@import "../../component/Footer/footer";
