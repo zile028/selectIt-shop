@@ -4,9 +4,12 @@ import {mainNavbarItem, routes} from "../../router/routes";
 import Dorpdown from "./Dorpdown";
 import {useDispatch, useSelector} from "react-redux";
 import {logoutUser} from "../../store/userSlice";
+import logo from "../../assets/logo.png"
+import {removeFromCart} from "../../store/cartSlice";
 
 function Navbar() {
     const {user} = useSelector((store) => store.userStore)
+    const {cart, totalPrice} = useSelector((store) => store.cartStore)
     const dispatch = useDispatch()
     return (
         <>
@@ -55,7 +58,6 @@ function Navbar() {
                                             <li><NavLink to={routes.REGISTER.path} title="register">Register</NavLink>
                                             </li>
                                         </>
-
                                     }
 
                                 </ul>
@@ -71,7 +73,7 @@ function Navbar() {
                             <div className="col-md-3 col-sm-4 col-xs-4">
                                 <div className="logo-block">
                                     <Link to={routes.HOME.path}>
-                                        <img src="images/logo-1.png" alt="logo" height="38"
+                                        <img src={logo} alt="logo" height="38"
                                              width="120"/>
                                     </Link>
                                 </div>
@@ -93,8 +95,11 @@ function Navbar() {
                                             </div>
                                             <input type="text" placeholder="Search..." className="form-control"/>
                                             <span className="input-group-btn">
+
 										<button type="button" title="Search" className="btn btn-search"><i
                                             className="fa fa-search">icon</i></button>
+
+
 									</span>
                                         </div>
                                     </div>
@@ -128,8 +133,18 @@ function Navbar() {
                     </div>
                 </div>
             </nav>
+            <ul>
+                {cart.map((el) => {
 
-
+                    return <li key={el._id}>
+                        {el.title} - <span>{el.quantity}</span> - <span>{el.total}</span>
+                        <button className="btn btn-sm btn-danger"
+                                onClick={() => dispatch(removeFromCart(el._id))}>X
+                        </button>
+                    </li>
+                })}
+                <li>Total: {totalPrice}</li>
+            </ul>
         </>
 
     );
