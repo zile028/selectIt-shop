@@ -1,77 +1,73 @@
-import React, {useState} from 'react';
-import UserServices from "../../services/UserServices";
-import {LS_TOKEN} from "../../config/config";
-import {useDispatch} from "react-redux";
-import {setUser} from "../../store/userSlice";
-import {toast, ToastContainer} from "react-toastify";
-import {useNavigate} from "react-router-dom";
-import {routes} from "../../router/routes";
-
-function LoginPage() {
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
-    const [inputData, setInputData,] = useState({
-        password: "",
-        email: "",
-    });
-
-    const inputHandler = (e) => {
-        setInputData({...inputData, [e.target.name]: e.target.value})
-    }
-
-    const submitHandler = (e) => {
-        e.preventDefault()
-        UserServices.login(inputData)
-            .then((res) => {
-                if (res.status === 201) {
-                    console.log(res.data.msg)
-                } else {
-                    dispatch(setUser(res.data.user))
-                    localStorage.setItem(LS_TOKEN, res.data.token)
-                    toast.success("You are logged")
-                    setTimeout(() => {
-                        navigate(routes.DASHBOARD.path)
-                    }, 3000)
-                }
-            })
-            .catch((err) => {
-                console.log("GRESKA")
-                console.log(err)
-            })
-    }
-    return (
-        <div className="container">
-            <div className="row">
-                <div className="col-6">
-                    <div className="form-signin w-100 m-auto">
-                        <form onSubmit={submitHandler}>
-                            <h1 className="h3 mb-3 fw-normal">Login</h1>
-                            <input
-                                type="email"
-                                className="form-control mb-3"
-                                name="email"
-                                placeholder="Email address"
-                                value={inputData.email}
-                                onInput={inputHandler}
-                            />
-                            <input
-                                type="password"
-                                className="form-control mb-3"
-                                name="password"
-                                placeholder="Password"
-                                value={inputData.password}
-                                onInput={inputHandler}
-                            />
-                            <button className="w-100 btn btn-lg btn-primary" type="submit">Login</button>
-                        </form>
-                    </div>
-                </div>
-                <div className="col-6">
-                </div>
-            </div>
-            <ToastContainer/>
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import "./_loginForm.scss";
+import { routes } from "../../router/routes";
+const LoginPage = () => {
+  const formik = useFormik({
+    initialValues: { email: "", password: "" },
+    validationSchema: Yup.object({
+      email: Yup.string()
+        .email("Invalid email format")
+        .required("Email is required"),
+      password: Yup.string().required("Password is required"),
+    }),
+    onSubmit: (values) => {
+      console.log(values);
+      ///handle UserService.login here
+    },
+  });
+  return (
+    <div className="login">
+      <div className="card">
+        <div className="left">
+          <h1>SELECTIT SHOP</h1>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores
+            eligendi voluptate magni accusantium distinctio alias, officiis
+            soluta voluptatum facere vel!
+          </p>
+          <span>Don't you have an account?</span>
+          <Link to={routes.REGISTER.path}>
+            <button>Register</button>
+          </Link>
         </div>
-    );
-}
+        <div className="right">
+          <h1>Login</h1>
+          <form onSubmit={formik.handleSubmit}>
+            <label htmlFor="email">
+              {formik.errors.email && (
+                <div className="error">{formik.errors.email}</div>
+              )}
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+              onChange={formik.handleChange}
+              value={formik.values.email}
+            />
+            <label htmlFor="password">
+              {formik.errors.password && (
+                <div className="error">{formik.errors.password}</div>
+              )}
+            </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              onChange={formik.handleChange}
+              value={formik.values.password}
+            />
+            <button type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default LoginPage;
