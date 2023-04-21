@@ -5,6 +5,7 @@ import RegisterPage from "../pages/RegisterPage/RegisterPage";
 import ActivateAccountPage from "../pages/ActivateAccountPage/ActivateAccountPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import ContactPage from "../pages/ContactPage/ContactPage";
+import SingleProductPage from "../pages/SingleProductPage/SingleProductPage";
 
 export const appChildren = [
     {
@@ -29,6 +30,10 @@ export const appChildren = [
     },
     {
         path: routes.CONTACT.path,
-        element: <ContactPage/>
+        element: <ContactPage />
     },
+    {
+        path: routes.PRODUCT_DETAIL.path,
+        element: <SingleProductPage />
+    }
 ]
