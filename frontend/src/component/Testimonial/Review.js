@@ -1,47 +1,74 @@
-import { useState } from 'react';
-import reviews from './clientsData';
-function Reviews() {
-  const [activeCircle, setActiveCircle] = useState(1);
+import React, { useRef, useState } from "react";
 
-  const usersPerPage = 3;
+import { Swiper, SwiperSlide } from "swiper/react";
+import { reviewsOne } from "./clientsData";
+import { reviewsTwo } from "./clientsData";
+import { reviewsThree } from "./clientsData";
+
+import "swiper/css";
+import "swiper/css/pagination";
+
+import "./styles.css"
+
+import { Pagination } from "swiper";
+import SingleReview from "./SingleReview";
  
-const usersBySection = [
-  reviews.slice(0, usersPerPage),
-  reviews.slice(usersPerPage, usersPerPage * 2),
-  reviews.slice(usersPerPage * 2, usersPerPage * 3),
-];
-  // const sectionClasses = `user-section active-section-${activeCircle}`;
 
+export default function App() {
   return (
-    <article className='review'>
-      {usersBySection[activeCircle].map(user => (
-        <div className='client' key={user.id}>
-        <div className='info-img'>
-          <p className='info'>{user.text}</p>
-        <div className='img-container'>
-          <img src={user.image} alt={user.name} className='person-img' />
-        </div>
+    <div >
+      <Swiper
+        spaceBetween={30}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Pagination]}
+        
+        style={{height:"60vh"}}
+      >
 
-        </div>
-          <h4 className='author'>{user.name}</h4>
-          <p className='job'>{user.job}</p>
-        </div>
-      ))}
-      <div className="button-container">
-        <button className={activeCircle === 0 ? 'active' : ''} onClick={() => setActiveCircle(0)}>  <div className='circle'
-    style={{
-      backgroundColor: activeCircle === 0 ? 'white' : '#1DAAA3',
-    }}
-  >
-  </div></button>
-        <button className={activeCircle === 1 ? 'active' : ''} onClick={() => setActiveCircle(1)}><div className='circle'   style={{
-      backgroundColor: activeCircle === 1 ? 'white' : '#1DAAA3',
-    }}></div></button>
-        <button className={activeCircle === 2 ? 'active' : ''} onClick={() => setActiveCircle(2)}><div className='circle'   style={{
-      backgroundColor: activeCircle === 2 ? 'white' : '#1DAAA3',
-    }}></div></button>
-      </div>
-    </article>
+ <SwiperSlide>
+
+      {reviewsOne && reviewsOne.map((review ) => {
+        return <SingleReview
+         key={review.id}
+         name={review.name}
+         job={review.job}
+         image={review.image}
+         text={review.text}
+
+        />
+      })}
+
+  </SwiperSlide>
+      <SwiperSlide>
+       {reviewsTwo &&  reviewsTwo.map((review ) => {
+         return <SingleReview 
+           key={review.id}
+           name={review.nameTwo}
+           job={review.jobTwo}
+           image={review.imageTwo}
+           text={review.textTwo}
+         />
+          })}
+       </SwiperSlide>
+
+       <SwiperSlide> 
+         
+         {reviewsThree && reviewsThree.map((review) =>{
+          return <SingleReview 
+             key={review.id}
+             name={review.nameThree}
+             job={review.jobThree}
+             image={review.imageThree}
+             text={review.textThree}
+          />
+         })}
+       </SwiperSlide>
+
+      
+        
+      </Swiper>
+    </div>
   );
 }
-  export default Reviews
