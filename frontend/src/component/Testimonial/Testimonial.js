@@ -3,7 +3,7 @@ import Reviews from './Review'
 
 function Testimonial() {
   return (
-    <main>
+    <div className="main">
         <section className='container'>
         <div className='title'>
                 <h1>WORDS FROM CLIENTS</h1>
@@ -12,7 +12,7 @@ function Testimonial() {
            <Reviews/>
 
         </section>
-    </main>
+    </div>
   )
 }
 
