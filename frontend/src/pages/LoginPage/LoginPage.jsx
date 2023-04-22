@@ -1,10 +1,17 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import "./_loginForm.scss";
 import { routes } from "../../router/routes";
+import UserServices from "../../services/UserServices";
+import { LS_TOKEN } from "../../config/config";
+import { useDispatch } from "react-redux";
+import { toast, ToastContainer } from "react-toastify";
+import { setUser } from "../../store/userSlice";
 const LoginPage = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: { email: "", password: "" },
     validationSchema: Yup.object({
@@ -14,8 +21,23 @@ const LoginPage = () => {
       password: Yup.string().required("Password is required"),
     }),
     onSubmit: (values) => {
-      console.log(values);
-      ///handle UserService.login here
+      UserServices.login(values)
+        .then((res) => {
+          if (res.status === 201) {
+            console.log(res.data.msg);
+          } else {
+            dispatch(setUser(res.data.user));
+            localStorage.setItem(LS_TOKEN, res.data.token);
+            toast.success("You are logged in");
+            setTimeout(() => {
+              navigate(routes.DASHBOARD.path);
+            }, 3000);
+          }
+        })
+        .catch((err) => {
+          console.log("GRESKA");
+          console.log(err);
+        });
     },
   });
   return (
@@ -66,6 +88,7 @@ const LoginPage = () => {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
