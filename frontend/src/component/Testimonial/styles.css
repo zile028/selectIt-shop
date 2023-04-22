@@ -1,7 +1,5 @@
 #app {
     height: 100%;
- 
-
     
   }
   html,
@@ -21,8 +19,7 @@
   
   .swiper {
     width: 100%;
-    height: 100%;
-   
+    height: 38vh;
  
   }
   
@@ -34,16 +31,27 @@
     align-items: center;
     display: flex;
     justify-content: space-around;
-   
+  
     
-   
-    
+  }
+
+  .swiper-pagination {
+    display: none;
+  }
+  
+  .swiper-pagination-bullet {
+    display: none;
+  }
+  
+  .swiper-pagination-bullet-active:nth-child(-n+3),
+  .swiper-pagination-bullet:nth-child(-n+3) {
+    display: inline-block;
   }
 
   @media only screen and (max-width: 1200px){
       
      .swiper-slide p{
-      font-size: 0.85em;
+      font-size: 0.89em;
      }
      .swiper-slide img{
        width: 85%;
@@ -54,14 +62,17 @@
   @media only screen and (max-width: 1050px){
       
     .swiper-slide p{
-     font-size: 0.78em;
+     font-size: 0.85em;
     }
     .swiper-slide img{
       width: 75%;
-      height: 85%
+      height: 75%
     }
     .swiper-slide{
-       font-size: 0.70em;
+       font-size: 0.85em;
+    }
+    .swiper{
+      height: 40vh;
     }
 
  }

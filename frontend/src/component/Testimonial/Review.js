@@ -1,74 +1,66 @@
-import React, { useRef, useState } from "react";
-
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { reviewsOne } from "./clientsData";
-import { reviewsTwo } from "./clientsData";
-import { reviewsThree } from "./clientsData";
-
+import reviews from "./clientsData";
 import "swiper/css";
 import "swiper/css/pagination";
-
-import "./styles.css"
-
+import "./styles.css";
 import { Pagination } from "swiper";
 import SingleReview from "./SingleReview";
- 
+
 
 export default function App() {
+  const [swiper, setSwiper] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+ 
+  const handleButtonClick = (index) => {
+    if (swiper) {
+      swiper.slideTo(index * 3);
+      setActiveIndex(index);
+  
+    }
+  };
   return (
     <div >
       <Swiper
+        slidesPerView={3}
         spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
+        pagination={{ clickable: true, dynamicBullets: true }}
         modules={[Pagination]}
-        
-        style={{height:"60vh"}}
+        onSwiper={setSwiper}
+        mousewheel={false}
+        allowTouchMove={false}
+         className="swipes"
       >
-
- <SwiperSlide>
-
-      {reviewsOne && reviewsOne.map((review ) => {
-        return <SingleReview
-         key={review.id}
-         name={review.name}
-         job={review.job}
-         image={review.image}
-         text={review.text}
-
-        />
-      })}
-
-  </SwiperSlide>
-      <SwiperSlide>
-       {reviewsTwo &&  reviewsTwo.map((review ) => {
-         return <SingleReview 
-           key={review.id}
-           name={review.nameTwo}
-           job={review.jobTwo}
-           image={review.imageTwo}
-           text={review.textTwo}
-         />
-          })}
-       </SwiperSlide>
-
-       <SwiperSlide> 
-         
-         {reviewsThree && reviewsThree.map((review) =>{
-          return <SingleReview 
-             key={review.id}
-             name={review.nameThree}
-             job={review.jobThree}
-             image={review.imageThree}
-             text={review.textThree}
-          />
-         })}
-       </SwiperSlide>
-
-      
-        
+        {reviews.map((review) => {
+          return (
+            <SwiperSlide key={review.id}>
+              <SingleReview
+                name={review.name}
+                job={review.job}
+                image={review.image}
+                text={review.text}
+              />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
+      <div className="buttons">
+        {[0, 1, 2].map((index) => {
+          const isActive = index === activeIndex;
+          return (
+            <button
+              key={index}
+              className="button"
+              onClick={() => handleButtonClick(index)}
+            >
+          
+             <div className={`circle ${isActive ? "colored" : ""}`} ></div>
+      
+            </button>
+          );
+        })}
+      </div>
+     
     </div>
   );
 }

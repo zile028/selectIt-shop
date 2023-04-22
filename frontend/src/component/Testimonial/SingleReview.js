@@ -1,9 +1,9 @@
 import React from 'react'
 
 function SingleReview(props) {
-    console.log(props)
+    
   return (
-    <div>
+    <div className='review'>
       <div className='client' >
         <div className='info-img'>
        <p className='info'>{props.text}</p>
