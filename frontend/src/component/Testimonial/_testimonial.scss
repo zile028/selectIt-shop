@@ -120,7 +120,8 @@ main {
 
 .author {
   margin-bottom: 0.25rem;
-  font-size: 1.25rem;
+  font-size: 1.20rem;
+  margin-left: 15px;
   text-align: left;
   color: #1DAAA3;
 }
@@ -132,6 +133,7 @@ main {
   font-size: 0.85rem;
   text-align: left;
   font-weight: lighter;
+  margin-left: 15px;
 }
 
 .info {
@@ -145,6 +147,7 @@ main {
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   text-align: left;
+  margin-left: 15px;
 }
 
 
