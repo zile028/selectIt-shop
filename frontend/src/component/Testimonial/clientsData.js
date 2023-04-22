@@ -19,7 +19,7 @@ const reviews = [
     
     {
         id: 3,
-        name: 'John Lock',
+        name: 'Marie Paul',
         job: 'Politician',
         image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8d29tYW4lMjBmYWNlJTIwcGljdHVyZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60',
         text: "I was hesitant to buy this product at first, but I'm so glad I did. and i liked this product. It was perfect work"
@@ -35,7 +35,7 @@ const reviews = [
 
     {
         id: 5,
-        name: 'Marie Paul',
+        name: 'John Lock',
         job: 'Chemist',
         image: 'https://images.unsplash.com/photo-1531750026848-8ada78f641c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
         text: "I'm not usually one to write reviews, but I had to share my experience with this product. and i liked this product ."
