@@ -1,4 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {LS_CART} from "../config/config";
 
 const CartSlice = createSlice({
     name: "cart",
@@ -8,7 +9,20 @@ const CartSlice = createSlice({
     },
     reducers: {
 
-        changeQuantityCart: () => {
+        changeQuantityCart: (state, action) => {
+            let {id, count} = action.payload
+            let copyCart = [...state.cart]
+            let totalPrice = 0
+            state.cart = copyCart.map((item) => {
+                if (item._id === id) {
+                    item.quantity += count
+                    item.total = item.quantity * item.price
+                }
+                totalPrice += item.total
+                return item
+            })
+            state.totalPrice = totalPrice
+            CartSlice.caseReducers.updateLocalStorage(state)
         },
 
         removeFromCart: (state, action) => {
@@ -18,7 +32,9 @@ const CartSlice = createSlice({
                 }
                 return el._id !== action.payload
             })
+            CartSlice.caseReducers.updateLocalStorage(state)
         },
+
         addToCart: (state, action) => {
             let product = {...action.payload.product}
             let quantity = action.payload.quantity
@@ -47,9 +63,24 @@ const CartSlice = createSlice({
             })
             state.totalPrice = totalPrice
             state.cart = copyCart
+
+            CartSlice.caseReducers.updateLocalStorage(state)
+        },
+
+        restoreCart: (state, action) => {
+            state.cart = action.payload
+            state.totalPrice = action.payload.reduce((previus, current) => {
+                return previus + current.total
+            }, 0)
+        },
+
+        updateLocalStorage: (state) => {
+            localStorage.setItem(LS_CART, JSON.stringify(state.cart))
         }
     }
+
 })
 
-export const {addToCart, removeFromCart, changeQuantityCart} = CartSlice.actions
+
+export const {addToCart, removeFromCart, restoreCart, changeQuantityCart} = CartSlice.actions
 export default CartSlice.reducer

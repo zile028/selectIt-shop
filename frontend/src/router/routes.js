@@ -70,6 +70,8 @@ export const routes = {
         ]
     },
     CONTACT: {path: "/contact", name: "Contact us"},
+    CART: {path: "/cart", name: "Cart"},
+    //DASHBOARD ROUTES
     DASHBOARD: {path: "/dashboard"}
 }
 
