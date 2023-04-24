@@ -71,6 +71,10 @@ export const routes = {
     },
     CONTACT: {path: "/contact", name: "Contact us"},
     CART: {path: "/cart", name: "Cart"},
+    CATEGORY_PRODUCTS: {
+        path: "/shop/:category",
+        realPath: (category) => "/shop/" + category
+    },
     //DASHBOARD ROUTES
     DASHBOARD: {path: "/dashboard"}
 }

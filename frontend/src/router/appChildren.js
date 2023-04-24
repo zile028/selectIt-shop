@@ -18,6 +18,10 @@ export const appChildren = [
         element: <ShopPage/>
     },
     {
+        path: routes.CATEGORY_PRODUCTS.path,
+        element: <ShopPage/>
+    },
+    {
         path: routes.REGISTER.path,
         element: <RegisterPage/>
     },
