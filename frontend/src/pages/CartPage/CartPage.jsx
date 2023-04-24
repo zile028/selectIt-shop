@@ -1,6 +1,8 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {changeQuantityCart, removeFromCart} from "../../store/cartSlice";
+import { TiDeleteOutline } from "react-icons/ti";
+
 
 function CartPage() {
     const {cart, totalPrice} = useSelector(state => state.cartStore)
@@ -10,24 +12,37 @@ function CartPage() {
         dispatch(changeQuantityCart({id, count}))
     }
     const renderProduct = () => {
+        
         return cart.map((item) => {
-            return <tr key={item._id}>
-                <th>{item.title}</th>
-                <th>{item.price}</th>
-                <th>
-                    <button className="btn btn-sm btn-info"
+            return <tr className="product-row" key={item._id}>
+             
+                <th className="product-section">
+                <div>
+                <img  className="product-image" src={item.images[0]} alt="products"/>
+
+                </div>
+                  <div className='title-section'>
+                  <p className='product-title'>{item.title}</p>  
+                  <p>Rating: <span className="product-rating">{item.rating}</span></p> 
+                  <p>Stock: <span className="product-rating">{item.stock}</span></p> 
+                   </div>
+                  </th>
+
+                <th className="product-pricing vertical-align">${item.price}</th>
+                <th className="product-quantity vertical-align">
+                    <button className="product-btn "
                             onClick={() => changeQuantityHandler(item._id, -1)}
                     >-
                     </button>
-                    {item.quantity}
-                    <button className="btn btn-sm btn-info" onClick={() => changeQuantityHandler(item._id, 1)}>+
+                   <div className="item-quantity">{item.quantity}</div> 
+                    <button className="product-btn" onClick={() => changeQuantityHandler(item._id, 1)}>+
                     </button>
                 </th>
-                <th>{item.total}</th>
-                <th>
-                    <button className="btn btn-sm btn-danger"
+                <th className="product-pricing vertical-align ">${item.total}</th>
+                <th className="vertical-align">
+                    <button className="product-remove-btn"
                             onClick={() => dispatch(removeFromCart(item._id))}>
-                        Remove
+                      <TiDeleteOutline className="product-icon"/>
                     </button>
                 </th>
             </tr>
@@ -36,23 +51,23 @@ function CartPage() {
 
     return (
         <section className="container">
-            <table className="table">
+            <table className="table cart-table">
                 <thead>
-                <tr>
+                <tr className="table-header">
                     <th>Products</th>
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Total</th>
-                    <th></th>
+                   
                 </tr>
                 </thead>
                 <tbody>
                 {renderProduct()}
                 </tbody>
                 <tfoot>
-                <tr>
-                    <td colSpan={3}>Total</td>
-                    <td>{totalPrice}</td>
+                <tr className="cart-total">
+                    <td colSpan={3}>Total:</td>
+                    <td>${totalPrice}</td>
                     <td></td>
                 </tr>
                 </tfoot>
@@ -62,3 +77,5 @@ function CartPage() {
 }
 
 export default CartPage;
+
+

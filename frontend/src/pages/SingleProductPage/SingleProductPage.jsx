@@ -9,7 +9,7 @@ import bgImage from "../../assets/images/productbanner.jpg"
 
 const SingleProductPage = () => {
   const [product, setProduct] = useState({});
-
+ console.log(product)
   const { id } = useParams();
 
   useEffect(() => {
