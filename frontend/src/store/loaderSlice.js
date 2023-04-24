@@ -6,9 +6,11 @@ const loaderSlice = createSlice({
         visible: false
     },
     reducers: {
-
+        setVisibleLoader: (state, action) => {
+            state.visible = action.payload
+        }
     }
 })
 
-
+export const { setVisibleLoader } = loaderSlice.actions
 export default loaderSlice.reducer

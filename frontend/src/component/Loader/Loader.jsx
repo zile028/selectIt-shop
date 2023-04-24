@@ -1,12 +1,18 @@
-import { useSelector } from "@reduxjs/toolkit";
+import { useSelector } from "react-redux";
 
 const Loader = () => {
 
-    const { visible } = useSelector(state => state.loaderStore)
+  const { visible } = useSelector(state => state.loaderStore)
 
+  console.log(visible);
   return (
     <>
-        {visible && <div>Loader</div>}
+        {visible && 
+          <div className="loader">
+            <h3 className="loader__title">Loading...</h3>
+            <div className="loader__spinner"></div>
+          </div>
+          }
     </>
   )
 }

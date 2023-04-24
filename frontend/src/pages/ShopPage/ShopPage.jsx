@@ -1,26 +1,33 @@
 import React, {useEffect, useState} from 'react';
-import {useSearchParams} from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setVisibleLoader } from '../../store/loaderSlice';
 import ProductService from "../../services/productService";
 import Heading from '../../component/Heading/Heading';
 import bgImage from "../../assets/images/shopbanner.jpg"
 import ProductCard from '../../component/ProductCard/ProductCard';
+import Loader from '../../component/Loader/Loader';
 
 function ShopPage() {
     const [products, setProducts] = useState([])
     const [count, setCount] = useState()
     const [searchParams, setSearchParams] = useSearchParams()
+
+    const dispatch = useDispatch()
+
     let limit = searchParams.get("limit") ? parseInt(searchParams.get("limit")) : 9
     let page = searchParams.get("page") ? parseInt(searchParams.get("page")) : 1
 
     useEffect(() => {
         setSearchParams({limit, page})
+        dispatch(setVisibleLoader(true))
         ProductService.pagination(limit, page)
             .then((res) => {
                 setProducts(res.data.products)
                 setCount(res.data.count)
             })
-            .catch((err) => {
-            })
+            .catch((err) => {})
+            .finally(() => dispatch(setVisibleLoader(false)))
     }, [searchParams]);
 
 
@@ -61,7 +68,7 @@ function ShopPage() {
         <>
             <Heading title="OUR PRODUCTS" bgImage={bgImage}></Heading>
             <section className="container">
-
+            <Loader />
                 <div className="products__container">
                     {renderedProducts()}
                 </div>
