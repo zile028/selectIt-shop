@@ -11,6 +11,7 @@ import CategoryServices from "../../services/CategoryServices";
 
 function Navbar() {
 	const [categories, setCategories] = useState();
+	const [selectedCategory, setSelectedCategory] = useState(null);
 	const {user} = useSelector((store) => store.userStore);
 	const {cart, totalPrice} = useSelector((store) => store.cartStore);
 	const dispatch = useDispatch();
@@ -21,10 +22,16 @@ function Navbar() {
 			.catch((err) => console.log(err))
 	}, [])
 
+	const renderSelectedCategory = (index) => {
+        setSelectedCategory(index)
+    }
+
 	const renderedCategories = () => {
-		return categories?.map(category => {
+		return categories?.map((category, index) => {
 			return <li key={category._id}>
-				<Link to="/">{category.name}</Link>
+				<Link to="/" onClick={() => renderSelectedCategory(index)}>
+					{category.name}
+				</Link>
 			</li>
 		})
 	}
@@ -155,7 +162,8 @@ function Navbar() {
 												aria-haspopup="true"
 												aria-expanded="false"
 											  >
-												  Category<span className="caret"></span>
+												  {selectedCategory !== null ? categories[selectedCategory]?.name : 'Category'}
+												  <span className="caret"></span>
 											  </button>
 											  <ul>
 												  {renderedCategories()}
