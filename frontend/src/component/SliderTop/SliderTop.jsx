@@ -1,42 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCreative, Navigation, Pagination, Autoplay } from "swiper";
-
 import "swiper/swiper-bundle.min.css";
 import "./_sliderTop.scss";
+import SliderService from "../../services/SliderService";
 const SliderTop = () => {
-  const [slides, setSlides] = useState([
-    {
-      header: "",
-      text: "",
-      button: {
-        btnText: "Home",
-        btnLink: "/",
-      },
-      imgUrl:
-        "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    },
-    {
-      header: "",
-      text: "",
-      button: {
-        btnText: "Home",
-        btnLink: "/",
-      },
-      imgUrl:
-        "https://images.pexels.com/photos/5632403/pexels-photo-5632403.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    },
-    {
-      header: "",
-      text: "",
-      button: {
-        btnText: "Home",
-        btnLink: "/",
-      },
-      imgUrl:
-        "https://images.pexels.com/photos/114907/pexels-photo-114907.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    },
-  ]);
+  const [slides, setSlides] = useState([]);
+
+  useEffect(() => {
+    SliderService.getSliderData().then((res) => {
+      setSlides(res.data);
+    });
+  }, []);
 
   return (
     <Swiper
@@ -60,21 +35,17 @@ const SliderTop = () => {
       onSwiper={(swiper) => console.log(swiper)}
     >
       {slides.map((slide) => (
-        <SwiperSlide key={slide.imgUrl}>
+        <SwiperSlide key={slide._id}>
           <div
             className="mySlide"
             style={{
-              backgroundImage: `url(${slide.imgUrl})`,
+              backgroundImage: `url(${slide.imageUrl})`,
             }}
           >
             <div className="text">
-              <h1>Lorem ipsum dolor sit.</h1>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum
-                quod labore distinctio repudiandae quaerat iure ipsum dolorem ex
-                cupiditate itaque!
-              </p>
-              <button className="btn btn-primary  "> Click me</button>
+              <h1>{slide.header}</h1>
+              <p>{slide.text}</p>
+              <button className="btn btn-primary">{slide.buttonText}</button>
             </div>
           </div>
         </SwiperSlide>
