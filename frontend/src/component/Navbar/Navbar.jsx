@@ -12,6 +12,7 @@ import CategoryServices from "../../services/CategoryServices";
 function Navbar() {
 	const [categories, setCategories] = useState();
 	const [selectedCategory, setSelectedCategory] = useState(null);
+	const [dropVisible, setDropVisible] = useState(false);
 	const {user} = useSelector((store) => store.userStore);
 	const {cart, totalPrice} = useSelector((store) => store.cartStore);
 	const dispatch = useDispatch();
@@ -25,11 +26,18 @@ function Navbar() {
 	const renderSelectedCategory = (index) => {
         setSelectedCategory(index)
     }
+	
+	const renderDropdown = () => {
+		setDropVisible(true)
+	}
 
 	const renderedCategories = () => {
 		return categories?.map((category, index) => {
 			return <li key={category._id}>
-				<Link to="/" onClick={() => renderSelectedCategory(index)}>
+				<Link to="/" onClick={() => {
+					renderSelectedCategory(index)
+					setDropVisible(false)
+				}}>
 					{category.name}
 				</Link>
 			</li>
@@ -161,13 +169,16 @@ function Navbar() {
 												data-toggle="dropdown"
 												aria-haspopup="true"
 												aria-expanded="false"
+												onClick={renderDropdown}
 											  >
 												  {selectedCategory !== null ? categories[selectedCategory]?.name : 'Category'}
 												  <span className="caret"></span>
 											  </button>
-											  <ul>
-												  {renderedCategories()}
-											  </ul>
+											  {
+												dropVisible && <ul>
+													{renderedCategories()}
+												</ul>
+											  }
 										  </div>
 										  <input
 											type="text"

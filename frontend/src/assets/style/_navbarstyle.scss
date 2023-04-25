@@ -192,10 +192,9 @@
         background-color: $white;
         font-family: 'Lato', sans-serif;
         font-size: 14px;
-        padding: 10.5px 0 10.5px 20px;
+        padding: 10.5px 20px;
         letter-spacing: 0.56px;
         text-transform: capitalize;
-        width: 160px;
         text-align: left;
 
         &:hover {
@@ -237,7 +236,7 @@
         top: 100%;
         left: 0;
         z-index: 1000;
-        display: none;
+        display: block;
         width: 160px;
         font-size: 14px;
         text-align: left;
@@ -253,7 +252,7 @@
             text-decoration: none;
             font-size: 12px;
             display: block;
-            
+            text-transform: capitalize;
             font-weight: 400;
             line-height: 1.42857143;
             color: #333;
