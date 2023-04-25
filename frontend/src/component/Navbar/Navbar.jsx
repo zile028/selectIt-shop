@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {Link, NavLink} from "react-router-dom";
 import {mainNavbarItem, routes} from "../../router/routes";
 import Dorpdown from "./Dorpdown";
@@ -7,11 +7,28 @@ import {logoutUser} from "../../store/userSlice";
 import logo from "../../assets/logo.png";
 import {removeFromCart} from "../../store/cartSlice";
 import Cart from "../Cart/Cart";
+import CategoryServices from "../../services/CategoryServices";
 
 function Navbar() {
+	const [categories, setCategories] = useState();
 	const {user} = useSelector((store) => store.userStore);
 	const {cart, totalPrice} = useSelector((store) => store.cartStore);
 	const dispatch = useDispatch();
+
+	useEffect(() => {
+		CategoryServices.getAllCategory()
+			.then((res) => setCategories(res.data))
+			.catch((err) => console.log(err))
+	}, [])
+
+	const renderedCategories = () => {
+		return categories?.map(category => {
+			return <li key={category._id}>
+				<Link to="/">{category.name}</Link>
+			</li>
+		})
+	}
+
 	return (
 	  <>
 		  <div id="top-header">
@@ -141,15 +158,7 @@ function Navbar() {
 												  Category<span className="caret"></span>
 											  </button>
 											  <ul>
-												  <li>
-													  <NavLink to="/">Action</NavLink>
-												  </li>
-												  <li>
-													  <NavLink to="/">Another action</NavLink>
-												  </li>
-												  <li>
-													  <NavLink to="/">Something else here</NavLink>
-												  </li>
+												  {renderedCategories()}
 											  </ul>
 										  </div>
 										  <input
