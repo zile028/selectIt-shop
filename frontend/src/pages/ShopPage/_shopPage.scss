@@ -1,11 +1,13 @@
 .products_content{
-
     display: flex;
-    gap:20px;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 
     .shop__wrapper {
         width: 100%;
         position: relative;
+        padding: 60px 0;
     }
 
     .products__container {
@@ -13,7 +15,6 @@
         flex-direction: row;
         flex-wrap: wrap;
         width: 100%;
-        padding: 60px 0;
         justify-content: space-between;
     }
 
