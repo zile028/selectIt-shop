@@ -1,15 +1,14 @@
-import React from 'react';
+import React from "react";
 import Subscribe from "../../component/Subscribe/Subscribe";
+import SliderTop from "../../component/SliderTop/SliderTop";
 
 function HomePage() {
-
-
-    return (
-        <>
-            <div>HOME</div>
-            <Subscribe />
-        </>
-    );
+  return (
+    <>
+      <SliderTop />
+      <Subscribe />
+    </>
+  );
 }
 
 export default HomePage;

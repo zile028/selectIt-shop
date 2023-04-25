@@ -1,0 +1,27 @@
+.mySlide {
+  height: 800px;
+  background-size: cover;
+  background-position: 50% 50%;
+  display: flex;
+  object-fit: cover;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #b1b1b1;
+}
+.swiper-slide {
+}
+.swiper-pagination {
+  margin-bottom: 20px;
+  .swiper-pagination-bullet {
+    margin: 0 10px !important;
+    border-radius: 0;
+    background-color: #1daaa3;
+    height: 16px;
+    width: 16px;
+    transition: all 0.3s;
+  }
+  .swiper-pagination-bullet-active {
+    width: 32px;
+  }
+}
