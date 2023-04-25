@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCreative, Navigation, Pagination, Autoplay } from "swiper";
 
 import "swiper/swiper-bundle.min.css";
 import "./_sliderTop.scss";
 const SliderTop = () => {
-  const slides = [
+  const [slides, setSlides] = useState([
     {
       header: "",
       text: "",
@@ -24,7 +24,7 @@ const SliderTop = () => {
         btnLink: "/",
       },
       imgUrl:
-        "https://images.pexels.com/photos/5625007/pexels-photo-5625007.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/5632403/pexels-photo-5632403.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
       header: "",
@@ -36,7 +36,7 @@ const SliderTop = () => {
       imgUrl:
         "https://images.pexels.com/photos/114907/pexels-photo-114907.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
-  ];
+  ]);
 
   return (
     <Swiper
@@ -67,13 +67,15 @@ const SliderTop = () => {
               backgroundImage: `url(${slide.imgUrl})`,
             }}
           >
-            <h1>Lorem ipsum dolor sit.</h1>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum
-              quod labore distinctio repudiandae quaerat iure ipsum dolorem ex
-              cupiditate itaque!
-            </p>
-            <button className="btn btn-warning btn-warning "> Click me</button>
+            <div className="text">
+              <h1>Lorem ipsum dolor sit.</h1>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum
+                quod labore distinctio repudiandae quaerat iure ipsum dolorem ex
+                cupiditate itaque!
+              </p>
+              <button className="btn btn-primary  "> Click me</button>
+            </div>
           </div>
         </SwiperSlide>
       ))}
