@@ -107,10 +107,14 @@
         text-decoration: none;
         text-transform: capitalize;
         font-size: 17px;
-        color: #444;
         font-family: 'Lato', sans-serif;
         transition: all 0.6s ease 0s;
         color: #1daaa3;
         padding-left: 15px;
+
+        &:hover {
+            color: #1daaa3;
+            padding-left: 15px;
+        }
     }
 }
