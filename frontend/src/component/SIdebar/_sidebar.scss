@@ -1,5 +1,9 @@
 .sidebar{
-
+    padding: 60px 20px;
     border: 1px solid red;
     width: 40%;
+
+    ul {
+        padding-left: 0;
+    }
 }

@@ -3,7 +3,10 @@
     display: flex;
     gap:20px;
 
-
+    .shop__wrapper {
+        width: 100%;
+        position: relative;
+    }
 
     .products__container {
         display: flex;

@@ -78,7 +78,7 @@ function ShopPage() {
             <section className="container products_content">
 
                 <Sidebar/>
-                <div>
+                <div className='shop__wrapper'>
                     <Loader/>
                     <div className="products__container">
                         {renderedProducts()}
