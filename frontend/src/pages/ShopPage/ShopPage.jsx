@@ -13,7 +13,7 @@ import Pagination from '../../component/Pagination/Pagination';
 function ShopPage() {
     const [products, setProducts] = useState([])
     const [count, setCount] = useState()
-    const [perPageView, setPerPageView] = useState([3, 6, 12]);
+    const [perPageView, setPerPageView] = useState([9, 6, 12]);
     const [selectedView, setSelectedView] = useState(0);
 
     const [searchParams, setSearchParams] = useSearchParams()
@@ -34,29 +34,17 @@ function ShopPage() {
 
     let limit = searchParams.get("limit") ? parseInt(searchParams.get("limit")) : perPageView[selectedView]
     let page = searchParams.get("page") ? parseInt(searchParams.get("page")) : 1
-
-    // console.log(limit);
-    // console.log(perPageView[selectedView]);
-    console.log(searchParams);
-
   
     useEffect(() => {
         let req = null
-        if(perPageView[selectedView] !== limit) {
-            setSearchParams({
-                limit: (searchParams) => {
-                    searchParams.set("limit", perPageView[selectedView].toString())
-                    return searchParams
-                },
-                page
-            })
+
+        if (perPageView[selectedView] !== limit) {
+            setSearchParams({limit: perPageView[selectedView], page})
         } else {
             setSearchParams({limit, page})
         }
         
         dispatch(setVisibleLoader(true))
-
-        //console.log(limit);
 
         if (category) {
             req = ProductService.categoryPagination(limit, page, category)
@@ -72,7 +60,7 @@ function ShopPage() {
             .finally(() => dispatch(setVisibleLoader(false)))
 
 
-    }, [searchParams]);
+    }, [searchParams, selectedView]);
 
 
     const renderedProducts = () => {
@@ -102,7 +90,7 @@ function ShopPage() {
                     <div className="products__container">
                         {renderedProducts()}
                     </div>
-                    {/* <Pagination setSearchParams={setSearchParams} limit={limit} page={page} count={count} /> */}
+                    <Pagination setSearchParams={setSearchParams} limit={limit} page={page} count={count} />
                 </div>
             </section>
         </>
