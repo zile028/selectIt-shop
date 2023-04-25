@@ -39,13 +39,17 @@ const SliderTop = () => {
           <div
             className="mySlide"
             style={{
-              backgroundImage: `url(${slide.imageUrl})`,
+              backgroundImage: `radial-gradient(circle, rgba(29,170,163,0.5) 35%, rgba(29,170,163,0.1) 100%),url(${slide.imageUrl})`,
             }}
           >
-            <div className="text">
+            <div className="left">
+              <img src={slide.imageUrl} alt="" />
+            </div>
+            <div className="right">
               <h1>{slide.header}</h1>
               <p>{slide.text}</p>
-              <button className="btn btn-primary">{slide.buttonText}</button>
+              <button className="button button--primary">{slide.buttonText}</button>
+              
             </div>
           </div>
         </SwiperSlide>

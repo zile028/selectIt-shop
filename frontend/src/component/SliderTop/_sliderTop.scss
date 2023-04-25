@@ -1,31 +1,46 @@
 .mySlide {
+  backdrop-filter: invert(80%);
+
   height: 800px;
   background-size: cover;
   background-position: 50% 50%;
   display: flex;
   object-fit: cover;
-  align-items: flex-end;
+  align-items: center;
+
   padding: 100px;
-  justify-content: flex-end;
-  flex-direction: column;
+  justify-content: space-evenly;
   color: #b1b1b1;
-  .text {
-    padding: 60px 20px;
-    background-color: rgba(29, 170, 163, 0.3);
-    border-radius: 5px;
+  .left {
+    // flex: 1;
+    display: flex;
+    // border: 6px solid #1daaa3;
+    filter: drop-shadow(1px 3px 10px #1daaa3);
+    // border-radius: 5px;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  .right {
+    display: flex;
+    // flex: 1;
+    padding: 0px 40px;
+    // // background-color: rgba(29, 170, 163, 0.3);
+    // border-radius: 5px;
     display: flex;
     flex-direction: column;
     color: white;
-    align-items: center;
-    h1{
+
+    h1 {
       font-weight: bold;
     }
     p {
-      // width: 50%;
     }
     button {
-      width: 30%;
-
+      
     }
   }
 }
