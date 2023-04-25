@@ -5,6 +5,8 @@ import RegisterPage from "../pages/RegisterPage/RegisterPage";
 import ActivateAccountPage from "../pages/ActivateAccountPage/ActivateAccountPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import ContactPage from "../pages/ContactPage/ContactPage";
+import SingleProductPage from "../pages/SingleProductPage/SingleProductPage";
+import CartPage from "../pages/CartPage/CartPage";
 
 export const appChildren = [
     {
@@ -13,6 +15,10 @@ export const appChildren = [
     },
     {
         path: routes.SHOP.path,
+        element: <ShopPage/>
+    },
+    {
+        path: routes.CATEGORY_PRODUCTS.path,
         element: <ShopPage/>
     },
     {
@@ -31,4 +37,12 @@ export const appChildren = [
         path: routes.CONTACT.path,
         element: <ContactPage/>
     },
+    {
+        path: routes.PRODUCT_DETAIL.path,
+        element: <SingleProductPage/>
+    },
+    {
+        path: routes.CART.path,
+        element: <CartPage/>
+    }
 ]

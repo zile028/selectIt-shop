@@ -1,0 +1,123 @@
+.footer-main {
+  background-color: #000;
+  text-align: center;
+  padding-top: 85px;
+  padding-bottom: 45px;
+  .footer-header {
+    font-size: 50px;
+    color: white;
+    margin-bottom: 30px;
+    span {
+      color: #1daaa3;
+    }
+  }
+  .footer-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+    .icon-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 45px;
+      height: 45px;
+      margin: 0 10px;
+      border-radius: 50%;
+      background-color: transparent;
+      border: 1px solid #859999;
+      .icon {
+        color: #859999;
+      }
+    }
+  }
+  //   ASIDE BOTTOM WRAPPER
+  .aside-wrapper {
+    display: flex;
+    .aside {
+      //   width: 25%;
+      text-align: left;
+    }
+    .about-aside {
+      width: 33.33%;
+      padding-right: 46px;
+    }
+    .usefull-links-aside {
+      width: 16.6666%;
+    }
+    .contact-us-aside {
+      width: 25%;
+    }
+    .contact-us-aside2 {
+      width: 25%;
+    }
+    h3 {
+      &::before {
+        content: "";
+        width: 40px;
+        height: 3px;
+        left: 0;
+        bottom: 0;
+        background-color: #fff;
+        display: inline-block;
+        position: absolute;
+      }
+      font-size: 18px;
+      color: white;
+      position: relative;
+      margin-bottom: 30px;
+      padding-bottom: 22px;
+      letter-spacing: 0.45px;
+    }
+    p {
+      color: #859999;
+      .icon-bottom {
+        margin-right: 10px;
+      }
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    ul > li {
+      color: #859999;
+      text-align: left;
+      margin: 15px 0;
+      cursor: pointer;
+      &:hover {
+        color: #1daaa3;
+      }
+    }
+  }
+
+  .footer-bottom {
+    margin-top: 30px;
+    .footer-content {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #333;
+      padding-top: 35px;
+      text-align: left;
+      color: #859999;
+      font-size: 12px;
+
+      .footer-nav {
+        ul {
+          list-style: none;
+          padding: 0;
+          display: flex;
+        }
+        li {
+          margin-right: 25px;
+          color: #859999;
+          cursor: pointer;
+          &:hover {
+            color: #1daaa3;
+          }
+        }
+      }
+    }
+  }
+}

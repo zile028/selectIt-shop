@@ -1,47 +1,56 @@
 /* --------------------------------------------------------------
 # Config
 -------------------------------------------------------------- */
-@use 'sass:math';
-@import 'config/reset';
-@import 'config/variables';
+@use "sass:math";
+@import "config/reset";
+@import "config/variables";
 
 /* --------------------------------------------------------------
 # Breakpoints
 -------------------------------------------------------------- */
-@import 'base/breakpoints';
+@import "base/breakpoints";
 @import "subscribe";
 
 /* --------------------------------------------------------------
 # Helpers
 -------------------------------------------------------------- */
-@import 'helpers/mixins';
-@import 'helpers/helpers';
+@import "helpers/mixins";
+@import "helpers/helpers";
 
 /* --------------------------------------------------------------
 # Base
 -------------------------------------------------------------- */
-@import 'base/typography';
-@import 'base/layout';
+@import "base/typography";
+@import "base/layout";
 
 /* --------------------------------------------------------------
 # Layout
 -------------------------------------------------------------- */
-@import 'layout/buttons';
-@import 'layout/homePage';
-@import '../../pages/ContactPage/contactPage';
-@import '../../pages/ShopPage/shopPage';
+@import "layout/buttons";
+@import "layout/homePage";
+@import "../../pages/ContactPage/contactPage";
+@import "../../pages/ShopPage/shopPage";
+@import "../../pages/SingleProductPage/singleProductPage";
 
 /* --------------------------------------------------------------
 //# Components
 -------------------------------------------------------------- */
-@import '../../component/ContactForm/contactForm';
-@import '../../component/ContactInfo/contactInfo';
-@import '../../component/ContactMap/contactMap';
-@import '../../component/ProductCard/productCard';
+@import "../../component/ContactForm/contactForm";
+@import "../../component/ContactInfo/contactInfo";
+@import "../../component/ContactMap/contactMap";
+@import "../../component/ProductCard/productCard";
+@import "../../component/SingleProduct/singleProduct";
+@import "../../component/Cart/cart";
+@import "../../component/ModalItemsInCart/modalItemsInCart";
+@import "../../component/CookieModal/cookieModal";
 @import '../../component/Loader/loader';
 // @import 'modules/homePage';
 // @import 'modules/cookie';
 
-@import './registerForm';
+@import "./registerForm";
 @import "../../component/Heading/heading";
-@import './navbarstyle';
+@import "./navbarstyle";
+@import "../../component/SIdebar/sidebar";
+@import "../../component/Footer/footer";
+
+@import "../../component/Testimonial/testimonial";

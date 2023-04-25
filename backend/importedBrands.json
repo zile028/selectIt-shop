@@ -1,0 +1,492 @@
+[
+  {
+    "_id": "64366b94c924bbebdc881abd",
+    "name": "Apple",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881abe",
+    "name": "Samsung",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881abf",
+    "name": "OPPO",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ac0",
+    "name": "Huawei",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ac1",
+    "name": "Microsoft Surface",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ac2",
+    "name": "Infinix",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ac3",
+    "name": "HP Pavilion",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ac4",
+    "name": "Impression of Acqua Di Gio",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ac5",
+    "name": "Royal_Mirage",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ac6",
+    "name": "Fog Scent Xpressio",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ac7",
+    "name": "Al Munakh",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ac8",
+    "name": "Lord - Al-Rehab",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ac9",
+    "name": "L'Oreal Paris",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881aca",
+    "name": "Hemani Tea",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881acb",
+    "name": "Dermive",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881acc",
+    "name": "ROREC White Rice",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881acd",
+    "name": "Fair & Clear",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ace",
+    "name": "Saaf & Khaas",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881acf",
+    "name": "Bake Parlor Big",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ad0",
+    "name": "Baking Food Items",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ad1",
+    "name": "fauji",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ad2",
+    "name": "Dry Rose",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ad3",
+    "name": "Boho Decor",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ad4",
+    "name": "Flying Wooden",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ad5",
+    "name": "LED Lights",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ad6",
+    "name": "luxury palace",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ad7",
+    "name": "Golden",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ad8",
+    "name": "Furniture Bed Set",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ad9",
+    "name": "Ratttan Outdoor",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ada",
+    "name": "Kitchen Shelf",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881adb",
+    "name": "Multi Purpose",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881adc",
+    "name": "AmnaMart",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881add",
+    "name": "Professional Wear",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ade",
+    "name": "Soft Cotton",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881adf",
+    "name": "Top Sweater",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ae0",
+    "name": "RED MICKY MOUSE..",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ae1",
+    "name": "Digital Printed",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ae2",
+    "name": "Ghazi Fabric",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ae3",
+    "name": "IELGY",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ae4",
+    "name": "IELGY fashion",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ae5",
+    "name": "Synthetic Leather",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ae6",
+    "name": "Sandals Flip Flops",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ae7",
+    "name": "Maasai Sandals",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ae8",
+    "name": "Arrivals Genuine",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881ae9",
+    "name": "Vintage Apparel",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881aea",
+    "name": "FREE FIRE",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881aeb",
+    "name": "The Warehouse",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881aec",
+    "name": "Sneakers",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881aed",
+    "name": "Rubber",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881aee",
+    "name": "Naviforce",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881aef",
+    "name": "SKMEI 9117",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881af0",
+    "name": "Strap Skeleton",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881af1",
+    "name": "Stainless",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881af2",
+    "name": "Eastern Watches",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881af3",
+    "name": "Luxury Digital",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881af4",
+    "name": "Watch Pearls",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881af5",
+    "name": "Bracelet",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881af6",
+    "name": "LouisWill",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881af7",
+    "name": "Copenhagen Luxe",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881af8",
+    "name": "Steal Frame",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881af9",
+    "name": "Darojay",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881afa",
+    "name": "Fashion Jewellery",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881afb",
+    "name": "Cuff Butterfly",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881afc",
+    "name": "Designer Sun Glasses",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881afd",
+    "name": "mastar watch",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881afe",
+    "name": "Car Aux",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881aff",
+    "name": "W1209 DC12V",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881b00",
+    "name": "TC Reusable",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881b01",
+    "name": "Neon LED Light",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881b02",
+    "name": "METRO 70cc Motorcycle - MR70",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881b03",
+    "name": "BRAVE BULL",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881b04",
+    "name": "shock absorber",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881b05",
+    "name": "JIEPOLLY",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881b06",
+    "name": "Xiangle",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881b07",
+    "name": "lightingbrilliance",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881b08",
+    "name": "Ifei Home",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881b09",
+    "name": "DADAWU",
+    "__v": 0
+  },
+  {
+    "_id": "64366b94c924bbebdc881b0a",
+    "name": "YIOSI",
+    "__v": 0
+  },
+  {
+    "_id": "64366c3a9d4f617e3031e657",
+    "name": "smartphones",
+    "__v": 0
+  },
+  {
+    "_id": "64366c3a9d4f617e3031e658",
+    "name": "laptops",
+    "__v": 0
+  },
+  {
+    "_id": "64366c3a9d4f617e3031e659",
+    "name": "fragrances",
+    "__v": 0
+  },
+  {
+    "_id": "64366c3a9d4f617e3031e65a",
+    "name": "skincare",
+    "__v": 0
+  },
+  {
+    "_id": "64366c3a9d4f617e3031e65b",
+    "name": "groceries",
+    "__v": 0
+  },
+  {
+    "_id": "64366c3a9d4f617e3031e65c",
+    "name": "home-decoration",
+    "__v": 0
+  },
+  {
+    "_id": "64366c3a9d4f617e3031e65d",
+    "name": "furniture",
+    "__v": 0
+  },
+  {
+    "_id": "64366c3a9d4f617e3031e65e",
+    "name": "tops",
+    "__v": 0
+  },
+  {
+    "_id": "64366c3a9d4f617e3031e65f",
+    "name": "womens-dresses",
+    "__v": 0
+  },
+  {
+    "_id": "64366c3a9d4f617e3031e660",
+    "name": "womens-shoes",
+    "__v": 0
+  },
+  {
+    "_id": "64366c3a9d4f617e3031e661",
+    "name": "mens-shirts",
+    "__v": 0
+  },
+  {
+    "_id": "64366c3a9d4f617e3031e662",
+    "name": "mens-shoes",
+    "__v": 0
+  },
+  {
+    "_id": "64366c3a9d4f617e3031e663",
+    "name": "mens-watches",
+    "__v": 0
+  },
+  {
+    "_id": "64366c3a9d4f617e3031e664",
+    "name": "womens-watches",
+    "__v": 0
+  },
+  {
+    "_id": "64366c3a9d4f617e3031e665",
+    "name": "womens-bags",
+    "__v": 0
+  },
+  {
+    "_id": "64366c3a9d4f617e3031e666",
+    "name": "womens-jewellery",
+    "__v": 0
+  },
+  {
+    "_id": "64366c3a9d4f617e3031e667",
+    "name": "sunglasses",
+    "__v": 0
+  },
+  {
+    "_id": "64366c3a9d4f617e3031e668",
+    "name": "automotive",
+    "__v": 0
+  },
+  {
+    "_id": "64366c3a9d4f617e3031e669",
+    "name": "motorcycle",
+    "__v": 0
+  },
+  {
+    "_id": "64366c3a9d4f617e3031e66a",
+    "name": "lighting",
+    "__v": 0
+  }
+]
