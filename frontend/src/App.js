@@ -5,17 +5,18 @@ import {Outlet} from "react-router-dom";
 import Footer from "./component/Footer/Footer";
 import React from "react";
 
+
 axios.defaults.baseURL = "http://localhost:4000/"
 
 function App() {
 
-    return (
-        <>
-            <Navbar/>
-            <Outlet/>
-            <Footer/>
-        </>
-    );
+	return (
+	  <>
+		  <Navbar/>
+		  <Outlet/>
+		  <Footer/>
+	  </>
+	);
 }
 
 export default App;
