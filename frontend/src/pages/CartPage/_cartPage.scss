@@ -1,0 +1,193 @@
+.product-image{
+  height: 7em;
+  width: 6.5em
+}
+
+.product-section{
+  width: 30em;
+  height: 8em;
+  margin-bottom: 3em;
+  margin-top: 3em;
+  display: flex;
+  
+}
+
+.title-section{
+  width: 25em;
+  margin-left: 35px;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+ 
+}
+
+.product-title{
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.product-rating{
+  color: rgb(165, 162, 162)
+}
+
+.table-header{
+  font-size: 1.40rem;
+  margin-bottom: 30px;
+ 
+}
+
+
+.vertical-align{
+  vertical-align: middle;
+}
+.product-pricing{
+ 
+  height: 5em;
+  width: 9em;
+  margin-left: 15px;
+  font-size: 1.41rem;
+ 
+}
+
+.product-quantity{
+ display: flex
+ 
+}
+
+.product-btn,
+.item-quantity{
+  border: 0.8px solid lightgray;
+  padding: 10px 14px;
+  font-size: 1.15rem;
+  font-weight: normal
+}
+
+.product-btn{
+  margin-right: 2px;
+  margin-left: 2px;
+}
+
+.product-btn:active,
+.product-btn:hover{
+  outline: 3px solid black;
+}
+
+.product-icon{
+  font-size: 2.2rem;
+  color: gray;
+}
+
+.product-remove-btn{
+ 
+  margin-left: -35px;
+  margin-right: 15px;
+}
+
+.cart-total{
+  margin-top: 25px;
+  font-size: 1.40rem;
+  font-weight: bold;
+}
+
+.product-row{
+
+  margin-right: 25px;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .table-header th {
+    font-size: 1.2rem;
+  }
+  .product-row td {
+    font-size: 1rem;
+  }
+  .table {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .table thead {
+    display: none;
+  }
+  .table tbody tr {
+    display: block;
+ 
+  }
+  .table tbody td {
+    display: block;
+    text-align: right;
+    font-size: 13px;
+  
+  }
+  .table tbody td:before {
+    content: attr(data-th);
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  .product-quantity {
+    width: 20%;
+  }
+ 
+  .product-image {
+    height: 6em;
+    width: 5.5em;
+  }
+  
+  .title-section {
+    margin-left: 0;
+    text-align: center;
+    width: 10em;
+
+  }
+  
+  .product-pricing {
+    margin-left: 0;
+    margin-top: 10px;
+    margin-left: 35px;
+   
+    font-size: 1rem
+  }
+  
+  .product-remove-btn {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .product-image {
+    height: 5em;
+    width: 4.5em;
+  }
+  
+  .product-section {
+    height: auto;
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+  }
+  
+  .title-section {
+    max-width: 100%;
+    font-size: 0.9rem;
+  }
+  
+  .product-pricing {
+    font-size: 1rem;
+    margin-top: 0;
+  }
+  
+  .product-btn,
+  .item-quantity {
+    font-size: 1rem;
+    padding: 8px 12px;
+  }
+  
+  .cart-total {
+    font-size: 1.2rem;
+  }
+
+}

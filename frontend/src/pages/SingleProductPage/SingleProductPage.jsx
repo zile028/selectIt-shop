@@ -1,6 +1,6 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import ProductService from "../../services/productService";
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ProductDetails from "../../component/SingleProduct/ProductDetails";
 import ProductInfo from "../../component/SingleProduct/ProductInfo";
 import LatestProducts from "../../component/LatestProducts/LatestProducts";
@@ -10,7 +10,7 @@ import bgImage from "../../assets/images/productbanner.jpg"
 const SingleProductPage = () => {
   const [product, setProduct] = useState({});
 
-  const {id} = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     ProductService.getProductDetails(id)
