@@ -15,14 +15,16 @@ const Pagination = ({ setSearchParams, limit, page, count }) => {
 
   const changePage = (e) => {
     setSearchParams({ limit, page: e.target.name });
+    
   };
 
   const renderPageBtn = () => {
     let numberPage = Math.ceil(count / limit);
-
+    
     return Array(numberPage)
       .fill(1)
       .map((el, index) => {
+        
         return (
           <li key={index} className="pagination__item">
             <button

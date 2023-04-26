@@ -26,8 +26,8 @@ function ShopPage() {
 
     const renderedPerPageView = () => {
         return perPageView.map((view, index) => {
-            return <li key={index}>
-                    <button onClick={() => handlePerPageView(index)}>{view}</button>
+            return <li key={index} className='shop__view-item'>
+                    <button onClick={() => handlePerPageView(index)} className={selectedView === index ? `shop__view-btn--active` : `shop__view-btn`}>{view}</button>
                 </li>
         })
     }
@@ -77,12 +77,9 @@ function ShopPage() {
                 <div className='shop__wrapper'>
                     <Loader/>
 
-                    <div className='shop__view-controls'>
-                        <span>View per page: </span>
-                        <button className='shop__control'>
-                            {perPageView[selectedView]}
-                        </button>
-                        <ul>
+                    <div className='shop__view'>
+                        <span className='shop__view-title'>View per page: </span>
+                        <ul className='shop__view-list'>
                             {renderedPerPageView()}
                         </ul>
                     </div>
