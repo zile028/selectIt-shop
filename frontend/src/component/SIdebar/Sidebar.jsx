@@ -6,7 +6,7 @@ import { MdSearch } from "react-icons/md";
 
 function Sidebar() {
   const [category, setCategory] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null)
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
     CategoryServices.getAllCategory()
@@ -18,7 +18,10 @@ function Sidebar() {
     setSelectedCategory(index)
   }
 
+
+
   const renderedCategories = () => {
+
     return category.map((el, index) => {
       return (
         <li key={el._id} className="sidebar__list-item">
@@ -54,6 +57,7 @@ function Sidebar() {
       <h3 className="sidebar__title">Categories</h3>
       <ul className="sidebar__list">
         {renderedCategories()}
+      
       </ul>
     </div>
   );
