@@ -28,7 +28,12 @@ function Navbar() {
     }
 	
 	const renderDropdown = () => {
-		setDropVisible(true)
+		if(!dropVisible) {
+			setDropVisible(true)
+		} else {
+			setDropVisible(false)
+		}
+		
 	}
 
 	const renderedCategories = () => {
