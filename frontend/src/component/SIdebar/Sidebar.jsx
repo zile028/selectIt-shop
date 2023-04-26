@@ -18,11 +18,8 @@ function Sidebar() {
     setSelectedCategory(index)
   }
 
-
-
   const renderedCategories = () => {
-
-  return category.map((el, index) => {
+return category.map((el, index) => {
       return (
         <li key={el._id} className="sidebar__list-item">
           <Link
