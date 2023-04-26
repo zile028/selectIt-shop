@@ -1,4 +1,5 @@
 const CategoryModel = require("../../model/categoryModel");
+
 const PaginationCategory = (req, res) => {
     const limit = parseInt(req.params.limit)
     const page = (parseInt(req.params.page) - 1) * limit
@@ -33,7 +34,6 @@ const PaginationCategory = (req, res) => {
 
 
     ]).then((result) => {
-        console.log(result)
         res.send(result[0])
     })
         .catch((err) => {

@@ -9,20 +9,43 @@ import ProductCard from '../../component/ProductCard/ProductCard';
 import Sidebar from '../../component/SIdebar/Sidebar';
 import Loader from '../../component/Loader/Loader';
 import AxiosErrorPage from "../ErrorPage/AxiosErrorPage";
+import Pagination from '../../component/Pagination/Pagination';
 
 function ShopPage() {
     const [axiosError, setAxiosError] = useState(null);
     const [products, setProducts] = useState([])
     const [count, setCount] = useState()
+    const [perPageView, setPerPageView] = useState([9, 6, 12]);
+    const [selectedView, setSelectedView] = useState(0);
+
     const [searchParams, setSearchParams] = useSearchParams()
     const {category} = useParams()
     const dispatch = useDispatch()
-    let limit = searchParams.get("limit") ? parseInt(searchParams.get("limit")) : 9
+
+    const handlePerPageView = (index) => {
+        setSelectedView(index)
+    }
+
+    const renderedPerPageView = () => {
+        return perPageView.map((view, index) => {
+            return <li key={index} className='shop__view-item'>
+                    <button onClick={() => handlePerPageView(index)} className={selectedView === index ? `shop__view-btn--active` : `shop__view-btn`}>{view}</button>
+                </li>
+        })
+    }
+
+    let limit = searchParams.get("limit") ? parseInt(searchParams.get("limit")) : perPageView[selectedView]
     let page = searchParams.get("page") ? parseInt(searchParams.get("page")) : 1
 
     useEffect(() => {
         let req = null
-        setSearchParams({limit, page})
+
+        if (perPageView[selectedView] !== limit) {
+            setSearchParams({limit: perPageView[selectedView], page})
+        } else {
+            setSearchParams({limit, page})
+        }
+
         dispatch(setVisibleLoader(true))
         if (category) {
             req = ProductService.categoryPagination(limit, page, category)
@@ -36,7 +59,7 @@ function ShopPage() {
             .catch((err) => {
             })
             .finally(() => dispatch(setVisibleLoader(false)))
-    }, [searchParams]);
+    }, [searchParams, selectedView]);
 
 
     const renderedProducts = () => {
@@ -45,61 +68,28 @@ function ShopPage() {
         })
     }
 
-    const handlePreviousPage = () => {
-        if (page > 1) {
-            setSearchParams({limit, page: page - 1})
-        }
-    }
+    return (
+        <>
+            <Heading title="OUR PRODUCTS" bgImage={bgImage}></Heading>
+            {axiosError ? (
+                <AxiosErrorPage axiosError={axiosError} />
+            ) : (
+            <section className="container products_content">
+                <Sidebar/>
+                <div className='shop__wrapper'>
+                    <Loader/>
 
-    const handleNextPage = () => {
-        if (page < Math.ceil(count / limit)) {
-            setSearchParams({limit, page: page + 1})
-        }
-    }
-
-    const renderPageBtn = () => {
-        let numberPage = Math.ceil(count / limit)
-
-        return Array(numberPage).fill(1).map((el, index) => {
-            return <li key={index} className="page-item">
-                <button className="page-link" name={el + index} onClick={changePage}>{el + index}</button>
-            </li>
-
-        })
-    }
-
-    const changePage = (e) => {
-        setSearchParams({limit, page: e.target.name})
-    }
-
-  return (
-    <>
-      <Heading title="OUR PRODUCTS" bgImage={bgImage}></Heading>
-
-      {axiosError ? (
-        <AxiosErrorPage axiosError={axiosError} />
-      ) : (
-        <section className="container products_content">
-          <Sidebar />
-          <div>
-            <Loader />
-            <div className="products__container">{renderedProducts()}</div>
-
-                    <nav aria-label="Page navigation example">
-                        <ul className="pagination">
-                            <li className="page-item">
-                                <button className="page-link" aria-label="Previous" onClick={handlePreviousPage}>
-                                    <span aria-hidden="true">&laquo;</span>
-                                </button>
-                            </li>
-                            {count && renderPageBtn()}
-                            <li className="page-item">
-                                <button className="page-link" aria-label="Next" onClick={handleNextPage}>
-                                    <span aria-hidden="true">&raquo;</span>
-                                </button>
-                            </li>
+                    <div className='shop__view'>
+                        <span className='shop__view-title'>View per page: </span>
+                        <ul className='shop__view-list'>
+                            {renderedPerPageView()}
                         </ul>
-                    </nav>
+                    </div>
+
+                    <div className="products__container">
+                        {renderedProducts()}
+                    </div>
+                    <Pagination setSearchParams={setSearchParams} limit={limit} page={page} count={count} />
                 </div>
             </section>
       )}

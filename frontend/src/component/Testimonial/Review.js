@@ -50,7 +50,7 @@ export default function App() {
           return (
             <button
               key={index}
-              className="button"
+              className="button-slider"
               onClick={() => handleButtonClick(index)}
             >
           

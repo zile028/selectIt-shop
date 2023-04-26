@@ -1,6 +1,6 @@
 import axios from "axios";
 
-class CategoryServices{
+class CategoryServices {
     static getAllCategory = () => axios.get('/category/all')
 }
 
