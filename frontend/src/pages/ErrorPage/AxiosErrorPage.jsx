@@ -1,21 +1,26 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
+import { routes } from "../../router/routes";
+import Logo from "../../assets/logo.png";
 const AxiosErrorPage = ({ axiosError }) => {
   const { code, message, name } = axiosError;
   return (
-    <div className="container">
-      <h1>AxiosErrorPage</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae,
-        illum dignissimos. Suscipit neque error temporibus inventore alias illo
-        sed officiis, ad possimus sunt! Vel odit illum molestiae nam libero eius
-        eligendi exercitationem necessitatibus reiciendis maxime! Dolore
-        accusantium, iure a ut odit beatae labore ex facere excepturi est, vel
-        perspiciatis laboriosam.
-      </p>
-      <h2>{code}</h2>
-      <p>{message}</p>
-      <p>{name}</p>
+    <div className="container my-5">
+      <div className="d-flex align-items-center justify-content-center">
+     
+        <div className="text-center">
+        <img src={Logo} alt="SelectIt Shop" />
+          <h1 className="fw-bold bg-danger p-3 mt-3">{code}</h1>
+          <h2>{message}</h2>
+          <p className="fs-3">
+            <span className="text-danger">Oops!</span> Something went wrong.
+          </p>
+          <p className="lead">{name} - Can not fetch data from backend.</p>
+          <Link to={routes.HOME.path} className="button button--primary ">
+            Go Home
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

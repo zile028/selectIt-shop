@@ -8,8 +8,10 @@ import bgImage from "../../assets/images/shopbanner.jpg"
 import ProductCard from '../../component/ProductCard/ProductCard';
 import Sidebar from '../../component/SIdebar/Sidebar';
 import Loader from '../../component/Loader/Loader';
+import AxiosErrorPage from "../ErrorPage/AxiosErrorPage";
 
 function ShopPage() {
+    const [axiosError, setAxiosError] = useState(null);
     const [products, setProducts] = useState([])
     const [count, setCount] = useState()
     const [searchParams, setSearchParams] = useSearchParams()
@@ -71,19 +73,18 @@ function ShopPage() {
         setSearchParams({limit, page: e.target.name})
     }
 
-    return (
-        <>
-            <Heading title="OUR PRODUCTS" bgImage={bgImage}></Heading>
+  return (
+    <>
+      <Heading title="OUR PRODUCTS" bgImage={bgImage}></Heading>
 
-
-            <section className="container products_content">
-                <Loader/>
-                <Sidebar/>
-                <div>
-                    
-                    <div className="products__container">
-                        {renderedProducts()}
-                    </div>
+      {axiosError ? (
+        <AxiosErrorPage axiosError={axiosError} />
+      ) : (
+        <section className="container products_content">
+          <Sidebar />
+          <div>
+            <Loader />
+            <div className="products__container">{renderedProducts()}</div>
 
                     <nav aria-label="Page navigation example">
                         <ul className="pagination">
@@ -102,6 +103,7 @@ function ShopPage() {
                     </nav>
                 </div>
             </section>
+      )}
         </>
     );
 }
