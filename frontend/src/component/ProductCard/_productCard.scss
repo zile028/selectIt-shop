@@ -102,6 +102,7 @@
 }
 
 .product__btn-primary {
+    z-index: 1000;
     &:hover {
         background-color: rgba($white, 0.8);
     }
