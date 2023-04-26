@@ -4,6 +4,7 @@ import { EffectCreative, Navigation, Pagination, Autoplay } from "swiper";
 import "swiper/swiper-bundle.min.css";
 import "./_sliderTop.scss";
 import SliderService from "../../services/SliderService";
+import { Link } from "react-router-dom";
 const SliderTop = () => {
   const [slides, setSlides] = useState([]);
 
@@ -39,7 +40,7 @@ const SliderTop = () => {
           <div
             className="mySlide"
             style={{
-              backgroundImage: `radial-gradient(circle, rgba(29,170,163,0.5) 35%, rgba(29,170,163,0.1) 100%),url(${slide.imageUrl})`,
+              backgroundImage: `radial-gradient(circle, rgba(29,170,163,0.2) 35%, rgba(29,170,163,0.1) 100%),url(${slide.imageUrl})`,
             }}
           >
             <div className="left">
@@ -47,9 +48,10 @@ const SliderTop = () => {
             </div>
             <div className="right">
               <h1>{slide.header}</h1>
-              <p>{slide.text}</p>
-              <button className="button button--primary">{slide.buttonText}</button>
-              
+              <p className="lead">{slide.text}</p>
+              <Link className="button button--primary" to={slide.buttonLink}>
+                {slide.buttonText}
+              </Link>
             </div>
           </div>
         </SwiperSlide>

@@ -1,18 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 .mySlide {
   backdrop-filter: invert(80%);
-
   height: 800px;
   background-size: cover;
   background-position: 50% 50%;
   display: flex;
   object-fit: cover;
   align-items: center;
-
+  font-family: "Poppins", sans-serif;
   padding: 100px;
   justify-content: space-evenly;
   color: #b1b1b1;
+
   .left {
-    // flex: 1;
+    flex: 1;
     display: flex;
     // border: 6px solid #1daaa3;
     filter: drop-shadow(1px 3px 10px #1daaa3);
@@ -24,23 +25,41 @@
       object-position: center;
     }
   }
+
   .right {
     display: flex;
-    // flex: 1;
+    flex: 1;
     padding: 0px 40px;
-    // // background-color: rgba(29, 170, 163, 0.3);
+    // background-color: rgba(29, 170, 163, 0.3);
     // border-radius: 5px;
     display: flex;
     flex-direction: column;
-    color: white;
+    color: black;
 
     h1 {
-      font-weight: bold;
+      font-weight: 700;
     }
     p {
+      font-weight: 600;
     }
-    button {
-      
+    a {
+      width: 130px;
+      color: black;
+      text-decoration: none;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    padding: 10px;
+
+    .left {
+      display: none;
+    }
+    .right {
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(29, 170, 163,0.7);
+      border-radius: 8px;
+      padding: 30px 5px;
     }
   }
 }
