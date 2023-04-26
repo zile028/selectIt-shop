@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {Link, NavLink} from "react-router-dom";
 import {mainNavbarItem, routes} from "../../router/routes";
 import Dorpdown from "./Dorpdown";
@@ -7,11 +7,48 @@ import {logoutUser} from "../../store/userSlice";
 import logo from "../../assets/logo.png";
 import {removeFromCart} from "../../store/cartSlice";
 import Cart from "../Cart/Cart";
+import CategoryServices from "../../services/CategoryServices";
 
 function Navbar() {
+	const [categories, setCategories] = useState();
+	const [selectedCategory, setSelectedCategory] = useState(null);
+	const [dropVisible, setDropVisible] = useState(false);
 	const {user} = useSelector((store) => store.userStore);
 	const {cart, totalPrice} = useSelector((store) => store.cartStore);
 	const dispatch = useDispatch();
+
+	useEffect(() => {
+		CategoryServices.getAllCategory()
+			.then((res) => setCategories(res.data))
+			.catch((err) => console.log(err))
+	}, [])
+
+	const renderSelectedCategory = (index) => {
+        setSelectedCategory(index)
+    }
+	
+	const renderDropdown = () => {
+		if(!dropVisible) {
+			setDropVisible(true)
+		} else {
+			setDropVisible(false)
+		}
+		
+	}
+
+	const renderedCategories = () => {
+		return categories?.map((category, index) => {
+			return <li key={category._id}>
+				<Link to="/" onClick={() => {
+					renderSelectedCategory(index)
+					setDropVisible(false)
+				}}>
+					{category.name}
+				</Link>
+			</li>
+		})
+	}
+
 	return (
 	  <>
 		  <div id="top-header">
@@ -137,20 +174,16 @@ function Navbar() {
 												data-toggle="dropdown"
 												aria-haspopup="true"
 												aria-expanded="false"
+												onClick={renderDropdown}
 											  >
-												  Category<span className="caret"></span>
+												  {selectedCategory !== null ? categories[selectedCategory]?.name : 'Category'}
+												  <span className="caret"></span>
 											  </button>
-											  <ul>
-												  <li>
-													  <NavLink to="/">Action</NavLink>
-												  </li>
-												  <li>
-													  <NavLink to="/">Another action</NavLink>
-												  </li>
-												  <li>
-													  <NavLink to="/">Something else here</NavLink>
-												  </li>
-											  </ul>
+											  {
+												dropVisible && <ul>
+													{renderedCategories()}
+												</ul>
+											  }
 										  </div>
 										  <input
 											type="text"

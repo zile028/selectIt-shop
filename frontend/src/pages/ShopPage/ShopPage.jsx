@@ -30,7 +30,6 @@ function ShopPage() {
             req = ProductService.pagination(limit, page)
         }
         req.then((res) => {
-            console.log(res.data)
             setProducts(res.data.products)
             setCount(res.data.count)
         })

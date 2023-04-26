@@ -117,6 +117,12 @@
     }
 }
 
+.single-product__controls {
+    button {
+        margin-left: 0 !important;
+    }
+}
+
 .single-product__quantity-control {
     margin-bottom: 30px;
     display: flex;
@@ -162,6 +168,6 @@
 }
 
 .single-product__selection {
-    margin-right: 10px;
+    margin: 0 16px 0 0 !important;
     letter-spacing: 1px;
 }
