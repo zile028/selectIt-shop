@@ -4,7 +4,6 @@ const Loader = () => {
 
   const { visible } = useSelector(state => state.loaderStore)
 
-  console.log(visible);
   return (
     <>
         {visible && 
