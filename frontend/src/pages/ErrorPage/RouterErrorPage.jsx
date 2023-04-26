@@ -7,23 +7,23 @@ const ErrorPage = () => {
   console.log(error);
   return (
     <div>
-      <div class="d-flex align-items-center justify-content-center vh-100">
+      <div className="d-flex align-items-center justify-content-center vh-100">
         
-        <div class="text-center">
+        <div className="text-center">
         <img src={Logo} alt="SelectIt Shop" />
-          <h1 class="display-1 fw-bold bg-danger mt-5">{status}</h1>
+          <h1 className="display-1 fw-bold bg-danger mt-5">{status}</h1>
           <h2>{statusText}</h2>
-          <p class="fs-3">
-            <span class="text-danger">Oops!</span> Page not found.
+          <p className="fs-3">
+            <span className="text-danger">Oops!</span> Page not found.
           </p>
-          <p class="lead">{data}</p>
+          <p className="lead">{data}</p>
 
           <code>
             
             <pre>{error.stack}</pre>
           </code>
 
-          <Link to={routes.HOME.path} class="button button--primary">
+          <Link to={routes.HOME.path} className="button button--primary">
             Go Home
           </Link>
         </div>
