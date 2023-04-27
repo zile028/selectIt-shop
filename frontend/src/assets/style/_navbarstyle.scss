@@ -161,7 +161,6 @@
 
     .logo-block {
         /*max-width: 100%;*/
-        margin-top: 22px;
 
         a {
             font-family: 'Poppins', sans-serif;
@@ -182,109 +181,17 @@
     }
 }
 
-
-.input-group-btn {
-    
-    .btn-default {
-        border-radius: 0;
-        border: 1px solid #eaeaea;
-        color: #999;
-        background-color: $white;
-        font-family: 'Lato', sans-serif;
-        font-size: 14px;
-        padding: 10.5px 20px;
-        letter-spacing: 0.56px;
-        text-transform: capitalize;
-        text-align: left;
-
-        &:hover {
-            background-color: $white;
-            border-color: #eaeaea;
-        }
-    }
-
-    .caret {
-        margin-left: 12px;
-    }
-
-    .form-control {
-        height: 43px;
-        border-right: none;
-        border-color: #eaeaea;
-        color: #c1c1c1;
-        box-shadow: none;
-        font-family: 'Lato', sans-serif;
-        font-style: italic;
-        font-size: 13px;
-        letter-spacing: 0.52px;
-    }
-
-    span {
-        .btn-search {
-            color: #c3c3c3;
-            padding: 10.5px 12px;
-            background-color: transparent;
-            border: 1px solid #eaeaea;
-            border-left: none;
-            border-radius: 0;
-        }
-    }
-
-    ul {
-        padding-left: 0;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        z-index: 1000;
-        display: block;
-        width: 160px;
-        font-size: 14px;
-        text-align: left;
-        list-style: none;
-        background-color: #fff;
-        background-clip: padding-box;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-        text-decoration: none;
-        height: 200px;
-        overflow-y: scroll;
-
-        li {
-            text-decoration: none;
-            font-size: 12px;
-            display: block;
-            text-transform: capitalize;
-            font-weight: 400;
-            line-height: 1.42857143;
-            color: #333;
-            white-space: nowrap;
-
-            a {
-                text-decoration: none;
-                color: #333;
-                font-size: 12px;
-                font-family: 'Poppins', sans-serif;
-                line-height: 14px;
-                letter-spacing: 1px;
-                font-weight: 500;
-                width: 100%;
-                height: 100%;
-                display: block;
-                padding: 5px 20px;
-                &:hover {
-                    background-color: #1daaa3;
-                    color: $white;
-                }
-
-            }
-
-            
-        }
-    }
-
-    &:hover ul {
-        display: block;
-    }
+.middle-header-wrapper {
+    display: flex;
+    align-items: center;
 }
+
+.header-info {
+    display: flex;
+    width: 80%;
+    align-items: center;
+}
+
 
 
 

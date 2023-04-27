@@ -1,0 +1,108 @@
+.form__search {
+    display: flex;
+    background-color: $white;
+    border: 1px solid $grey-light;
+    position: relative;
+    margin-right: 20px;
+    width: 100%;
+
+    &-btn {
+        border: none;
+        border-radius: 0;
+        color: #999;
+        background-color: $white;
+        font-family: 'Lato', sans-serif;
+        font-size: 14px;
+        padding: 17px 20px;
+        letter-spacing: 0.56px;
+        text-transform: capitalize;
+        text-align: left;
+        outline: none;
+        box-shadow: none;
+        position: relative;
+        display: flex;
+        white-space: nowrap;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+    }
+
+    &-icon {
+        margin-left: 10px;
+        bottom: 18px;
+        right: 15px;
+        font-size: 12px;
+        position: absolute;
+        display: block;
+        transition: 0.5s ease;
+    }
+
+    &-icon--active {
+        margin-left: 10px;
+        bottom: 18px;
+        right: 15px;
+        font-size: 12px;
+        position: absolute;
+        display: block;
+        transition: 0.5s ease;
+        transform: rotate(180deg);
+    }
+
+    &-list {
+        padding-left: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        width: 160px;
+        font-size: 14px;
+        text-align: left;
+        list-style: none;
+        background-color: #fff;
+        background-clip: padding-box;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+        text-decoration: none;
+        height: 200px;
+        overflow-y: scroll;
+    }
+
+
+    &-input {
+        border: 0;
+        border-left: 1px solid $grey-light;
+        outline: none;
+        color: #c1c1c1;
+        box-shadow: none;
+        font-family: inherit;
+        font-style: italic;
+        font-size: 13px;
+        letter-spacing: 0.9px;
+        padding: 10px 20px;
+        width: 100%;
+
+        &:focus {
+            ~ .form__search-submit-btn {
+                color: $black;
+            }
+            &::placeholder {
+                visibility: hidden;
+                opacity: 0;
+            }
+        }
+    }
+
+    &-submit-btn {
+        color: #c3c3c3;
+        padding: 17px 12px;
+        background-color: transparent;
+        border: 0;
+        outline: none;
+        border-radius: 0;
+        font-size: 14px;
+        transition: 0.4s ease;
+    }
+    
+}

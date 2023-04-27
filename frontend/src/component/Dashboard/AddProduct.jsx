@@ -32,7 +32,7 @@ function AddProduct() {
         onSubmit: (values) => {
             FileParser(values.thumbnail)
                 .then((res) => {
-                    values.thumbnai = res
+                    values.thumbnail = res
 
                 })
 
