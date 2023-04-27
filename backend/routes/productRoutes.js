@@ -3,6 +3,6 @@ const router = express.Router()
 
 router.get("/:limit/:page", require("../controlers/productControler/pagination"))
 router.get("/:category/:limit/:page", require("../controlers/productControler/paginationCategory"))
-router.post("/:id", require("../controlers/productControler/getSingleProduct"))
-
+router.get("/:id", require("../controlers/productControler/getSingleProduct"))
+router.post('/addProduct', require('../controlers/productControler/addProduct'));
 module.exports = router

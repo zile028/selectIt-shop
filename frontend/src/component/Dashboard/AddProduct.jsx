@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {useFormik} from "formik";
 import * as Yup from "yup"
 import {FileParser} from "../../utils/FileParser";
+import CategoryServices from '../../services/CategoryServices';
+import BrandServices from '../../services/BrandServices';
+import ProductService from '../../services/productService';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const VALID_TYPE = [
     "image/jpg", "image/png", "image/jpeg"
@@ -12,6 +18,9 @@ const MB = KB * 1024
 
 
 function AddProduct() {
+    const [allCategory, setAllCategory] = useState([]);
+    const [allBrand, setAllBrand] = useState([]);
+
 
     const formik = useFormik({
         initialValues: {
@@ -32,13 +41,35 @@ function AddProduct() {
         onSubmit: (values) => {
             FileParser(values.thumbnail)
                 .then((res) => {
-                    values.thumbnai = res
-
+                    values.thumbnail = res
+                    ProductService.addProduct(values)
+                        .then(res => toast(res.data, {
+                            position: "top-right",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                            }))
+                        .catch((err) => console.log(err));
                 })
+                .catch(err => console.log(err));
 
-            console.log(values)
+            formik.resetForm();
         }
     })
+
+    useEffect(()=>{
+        CategoryServices.getAllCategory()
+            .then(res => setAllCategory(res.data));
+
+        BrandServices.getAllBrand()
+            .then(res => setAllBrand(res.data));
+    },[])
+
+    console.log(allCategory);
 
     const showError = (name) => formik.errors[name] && formik.touched[name] && formik.errors[name]
 
@@ -75,16 +106,27 @@ function AddProduct() {
                 <select className="form-control mb-2" name="brand" onChange={formik.handleChange}
                         value={formik.values.brand}>
                     <option value="" disabled={true}>Brand</option>
-                    <option value="1">Brand 1</option>
-                    <option value="2">Brand 2</option>
+                    {
+                        allBrand.map(el => {
+                            return (
+                                <option value={el._id} key={el._id}>{el.name}</option>
+                            )
+                        })
+                    }
                 </select>
 
                 <label htmlFor="">Category <span>{showError("category")}</span></label>
                 <select className="form-control mb-2" name="category" onChange={formik.handleChange}
                         value={formik.values.category}>
                     <option value="" disabled={true}>Category</option>
-                    <option value="1">category 1</option>
-                    <option value="2">category 2</option>
+                    {
+                        allCategory.map(el => {
+                            return (
+                                <option value={el._id} key={el._id}>{el.name}</option>
+                            )
+                        })
+                    }
+                    
                 </select>
 
                 <label htmlFor="">Description <span>{showError("description")}</span></label>
@@ -95,6 +137,8 @@ function AddProduct() {
                 </textarea>
                 <button className="button button--primary" type="submit">Add product</button>
             </form>
+
+            <ToastContainer/>
         </div>
 
     </>
