@@ -33,8 +33,8 @@ const SliderTop = () => {
 				translate: ["100%", 0, 0],
 			},
 		}}
-		onSlideChange={() => console.log("slide change")}
-		onSwiper={(swiper) => console.log(swiper)}
+		//onSlideChange={() => console.log("slide change")}
+		//onSwiper={(swiper) => console.log(swiper)}
 	  >
 		  {slides.map((slide) => (
 			<SwiperSlide key={slide._id}>

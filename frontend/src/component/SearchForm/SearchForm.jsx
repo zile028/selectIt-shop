@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Link, Navigate, Routes, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { MdSearch } from "react-icons/md";
 import { BsChevronDown } from "react-icons/bs";
 import CategoryServices from "../../services/CategoryServices";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-
 const SearchForm = () => {
   const [categories, setCategories] = useState([]);
-  const [term, setTerm] = useState("");
 
   const navigate = useNavigate();
 
@@ -44,12 +42,12 @@ const SearchForm = () => {
         category: Yup.string(),
     }),
     onSubmit: (values, {resetForm}) => {
+      
         navigate(`/results/${values.searchTerm}`)
         resetForm({values: ""})
     },
     
 })
-
 
   return (
     <form onSubmit={formik.handleSubmit} className="form__search">

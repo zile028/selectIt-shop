@@ -7,6 +7,7 @@ import { MdSearch } from "react-icons/md";
 function Sidebar() {
   const [category, setCategory] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [hiddenCategories, setHiddenCategories] = useState(true);
 
   useEffect(() => {
     CategoryServices.getAllCategory()
@@ -15,16 +16,32 @@ function Sidebar() {
   }, []);
 
   const renderSelectedCategory = (index) => {
-    setSelectedCategory(index)
+    setSelectedCategory(index);
+  };
+
+  const handleShowCategories = () => {
+    hiddenCategories ? setHiddenCategories(false) : setHiddenCategories(true)
   }
 
   const renderedCategories = () => {
-  return category.map((el, index) => {
+    let copyCategories = [...category]
+
+    if(hiddenCategories) {
+      copyCategories = copyCategories.slice(0, 5)
+    } else {
+      copyCategories = category
+    }
+
+    return copyCategories.map((el, index) => {
       return (
         <li key={el._id} className="sidebar__list-item">
           <Link
             to={routes.CATEGORY_PRODUCTS.realPath(el.name)}
-            className={selectedCategory === index ? `sidebar__list-link--active` : `sidebar__list-link`}
+            className={
+              selectedCategory === index
+                ? `sidebar__list-link--active`
+                : `sidebar__list-link`
+            }
             onClick={() => renderSelectedCategory(index)}
           >
             {el.name}
@@ -54,7 +71,11 @@ function Sidebar() {
       <h3 className="sidebar__title">Categories</h3>
       <ul className="sidebar__list">
         {renderedCategories()}
-
+        <li className="sidebar__list-btn">
+          <button type="button" onClick={handleShowCategories}>
+              {hiddenCategories ? 'See more' : 'See less'}
+          </button>
+        </li>
       </ul>
     </div>
   );
