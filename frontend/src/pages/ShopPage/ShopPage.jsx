@@ -78,7 +78,6 @@ function ShopPage() {
                 <Sidebar/>
                 <div className='shop__wrapper'>
                     <Loader/>
-
                     <div className='shop__view'>
                         <span className='shop__view-title'>View per page: </span>
                         <ul className='shop__view-list'>

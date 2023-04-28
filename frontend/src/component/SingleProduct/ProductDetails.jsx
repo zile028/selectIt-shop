@@ -40,19 +40,30 @@ const ProductDetails = ({product}) => {
         dispatch(addToCart({product, quantity}))
     }
 
-
     return (
         <div className="single-product__details">
             <div className="single-product__content-left">
-                <div className="single-product__img-holder">
-                    {product.images && <img
-                        src={product.images[mainImage]}
-                        alt={product.title}
-                        className="single-product__img"
-                    />}
+                {
+                    product.images?.length !== 0 ? 
+                    <>
+                        <div className="single-product__img-holder">
+                            {product.images && <img
+                                src={product.images[mainImage]}
+                                alt={product.title}
+                                className="single-product__img"
+                            />}
+                        </div>
+                        <div className="single-product__images">
+                            {renderedImages()}
+                        </div>
+                    </>
+                    :
+                    <>
+                        <img src={product.thumbnail} alt={product.title} />
+                    </>
+                }
+                
 
-                </div>
-                <div className="single-product__images">{renderedImages()}</div>
             </div>
             <div className="single-product__content-right">
                 <h2 className="single-product__title">{product.title}</h2>

@@ -5,26 +5,31 @@
     justify-content: space-between;
     width: 100%;
 
+    @include media-breakpoint-down(md) {
+        flex-direction: column;
+    }
+
     .shop__wrapper {
         width: 100%;
         position: relative;
         padding: 60px 0;
+
+        @include media-breakpoint-down(md) {
+            padding: 10px 0;
+        }
     }
 
     .products__container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         width: 100%;
         padding: 60px 0;
-        justify-content: space-between;
-    }
 
-    @include media-breakpoint-down(md) {
-        flex-direction: column-reverse;
-        justify-content: flex-start;
+        @include media-breakpoint-down(md) {
+            display: flex;
+            flex-wrap: wrap;
+        }
     }
-
 }
 
 .shop__view {
