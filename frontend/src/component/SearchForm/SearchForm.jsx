@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { MdSearch } from "react-icons/md";
-import { BsChevronDown } from "react-icons/bs";
 import CategoryServices from "../../services/CategoryServices";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useDispatch, useSelector } from "react-redux";
+import { setCategories } from "../../store/categorySlice";
 
 const SearchForm = () => {
-  const [categories, setCategories] = useState([]);
+  const { categories } = useSelector(state => state.categoriesStore)
+  const dispatch = useDispatch()
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   useEffect(() => {
     CategoryServices.getAllCategory()
-      .then((res) => setCategories(res.data))
+      .then((res) => dispatch(setCategories(res.data)))
       .catch((err) => console.log(err));
   }, []);
 
@@ -52,7 +54,7 @@ const SearchForm = () => {
   return (
     <form onSubmit={formik.handleSubmit} className="form__search">
       <select
-        className="form__search-btn"
+        className="form__search-select"
         name="category"
         value={formik.values.category}
         onChange={formik.handleChange}

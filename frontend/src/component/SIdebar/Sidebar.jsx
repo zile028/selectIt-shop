@@ -3,15 +3,19 @@ import CategoryServices from "../../services/CategoryServices";
 import { Link } from "react-router-dom";
 import { routes } from "../../router/routes";
 import { MdSearch } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import { setCategories } from "../../store/categorySlice";
 
 function Sidebar() {
-  const [category, setCategory] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [hiddenCategories, setHiddenCategories] = useState(true);
 
+  const { categories } = useSelector(state => state.categoriesStore)
+  const dispatch = useDispatch()
+
   useEffect(() => {
     CategoryServices.getAllCategory()
-      .then((res) => setCategory(res.data))
+      .then((res) => dispatch(setCategories(res.data)))
       .catch((err) => console.log(err));
   }, []);
 
@@ -24,12 +28,12 @@ function Sidebar() {
   }
 
   const renderedCategories = () => {
-    let copyCategories = [...category]
+    let copyCategories = [...categories]
 
     if(hiddenCategories) {
       copyCategories = copyCategories.slice(0, 5)
     } else {
-      copyCategories = category
+      copyCategories = categories
     }
 
     return copyCategories.map((el, index) => {
