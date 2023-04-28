@@ -18,7 +18,7 @@ const UserSlice = createSlice({
         logoutUser: (state, action) => {
             state.user = {}
             localStorage.removeItem(LS_USER)
-            
+
         }
     }
 })

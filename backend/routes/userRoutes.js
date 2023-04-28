@@ -3,7 +3,7 @@ const UserModel = require("../model/userModel");
 const router = express.Router()
 
 function verifyToken(req, res, next) {
-    
+
     if (req.headers.authorization) {
         next()
     } else {
@@ -23,6 +23,7 @@ router.post("/login", require("../controlers/userControler/login"))
 
 /***** PUT *****/
 router.put("/activate/:id", require("../controlers/userControler/activateAccount"))
+router.put("/addToFavorite", require("../controlers/userControler/addToFavorite"))
 
 
 module.exports = router

@@ -76,8 +76,8 @@ export const routes = {
         realPath: (category) => "/shop/" + category
     },
     SEARCH_RESULTS: {
-        path: "/results/:cat/:term",
-        realPath: (cat, term) => "/results/" + cat + "/"  + term
+        path: "/results",
+        realPath: (cat, term) => "/results/" + cat + "/" + term
     },
     //DASHBOARD ROUTES
     DASHBOARD: {path: "/dashboard", name: "Account"},

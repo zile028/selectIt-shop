@@ -7,6 +7,8 @@ class UserServices {
     static getUser = (body) => axios.post("/user", body)
 
     static login = (body) => axios.post("/user/login", body)
+
+    static addToFavorite = (body) => axios.put("/user/addToFavorite", body)
 }
 
 export default UserServices
