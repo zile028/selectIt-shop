@@ -75,6 +75,10 @@ export const routes = {
         path: "/shop/:category",
         realPath: (category) => "/shop/" + category
     },
+    SEARCH_RESULTS: {
+        path: "/results/:cat/:term",
+        realPath: (cat, term) => "/results/" + cat + "/"  + term
+    },
     //DASHBOARD ROUTES
     DASHBOARD: {path: "/dashboard", name: "Account"},
     ADD_PRODUCT: {path: "addProduct", name: "Add product"}
@@ -82,7 +86,7 @@ export const routes = {
 
 export const mainNavbarItem = [
     routes.LIVING_ROOM, routes.BED_ROOM,
-    routes.SOFAS, routes.LATEST_PRODUCT, routes.BEST_SELER, routes.LATEST_NEWS, routes.CONTACT,
+    routes.SOFAS, routes.LATEST_PRODUCT, routes.BEST_SELER, routes.LATEST_NEWS, routes.CONTACT, routes.SEARCH_RESULTS
 ]
 
 export const dashboardSidebarItem = [

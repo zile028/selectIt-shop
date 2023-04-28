@@ -8,4 +8,5 @@ router.use("/product", require("./productRoutes"))
 router.use('/category', require('./categoryRoutes'))
 router.use("/slider", require("./sliderRoutes"));
 router.use('/brand',require('./brandRoutes'));
+router.use("/results", require("./searchRoutes"));
 module.exports = router;

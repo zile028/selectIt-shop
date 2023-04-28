@@ -141,6 +141,11 @@
         position: relative;
         display: flex;
         width: 100%;
+
+        button {
+            color: #1daaa3;
+            padding: 10px 0;
+        }
     }
 
     @include media-breakpoint-down(md) {

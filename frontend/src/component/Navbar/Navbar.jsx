@@ -7,47 +7,12 @@ import {logoutUser} from "../../store/userSlice";
 import logo from "../../assets/logo.png";
 import {removeFromCart} from "../../store/cartSlice";
 import Cart from "../Cart/Cart";
-import CategoryServices from "../../services/CategoryServices";
+import SearchForm from "../SearchForm/SearchForm";
 
 function Navbar() {
-	const [categories, setCategories] = useState();
-	const [selectedCategory, setSelectedCategory] = useState(null);
-	const [dropVisible, setDropVisible] = useState(false);
 	const {user} = useSelector((store) => store.userStore);
 	const {cart, totalPrice} = useSelector((store) => store.cartStore);
 	const dispatch = useDispatch();
-
-	useEffect(() => {
-		CategoryServices.getAllCategory()
-			.then((res) => setCategories(res.data))
-			.catch((err) => console.log(err))
-	}, [])
-
-	const renderSelectedCategory = (index) => {
-        setSelectedCategory(index)
-    }
-	
-	const renderDropdown = () => {
-		if(!dropVisible) {
-			setDropVisible(true)
-		} else {
-			setDropVisible(false)
-		}
-		
-	}
-
-	const renderedCategories = () => {
-		return categories?.map((category, index) => {
-			return <li key={category._id}>
-				<Link to="/" onClick={() => {
-					renderSelectedCategory(index)
-					setDropVisible(false)
-				}}>
-					{category.name}
-				</Link>
-			</li>
-		})
-	}
 
 	return (
 	  <>
@@ -155,59 +120,26 @@ function Navbar() {
 
 			  <div className="middle-header container-fluid">
 				  <div className="container">
-					  <div className="row">
-						  <div className="col-md-3 col-sm-4 col-xs-4">
-							  <div className="logo-block">
-								  <Link to={routes.HOME.path}>
-									  <img src={logo} alt="logo" height="38" width="120"/>
-								  </Link>
-							  </div>
-						  </div>
-						  <div className="col-md-9 py-3 float-right">
-							  <div className="header-info">
-								  <div className="col-md-9 col-sm-9 col-xs-9 d-flex">
-									  <div className="input-group">
-										  <div className="input-group-btn">
-											  <button
-												type="button"
-												className="btn btn-default dropdown-toggle"
-												data-toggle="dropdown"
-												aria-haspopup="true"
-												aria-expanded="false"
-												onClick={renderDropdown}
-											  >
-												  {selectedCategory !== null ? categories[selectedCategory]?.name : 'Category'}
-												  <span className="caret"></span>
-											  </button>
-											  {
-												dropVisible && <ul>
-													{renderedCategories()}
-												</ul>
-											  }
-										  </div>
-										  <input
-											type="text"
-											placeholder="Search..."
-											className="form-control"
-										  />
-										  <span className="input-group-btn">
-                        <button
-                          type="button"
-                          title="Search"
-                          className="btn btn-search"
-                        >
-                          <i className="fa fa-search">icon</i>
-                        </button>
-                      </span>
-									  </div>
-									  <Cart/>
-								  </div>
-							  </div>
-						  </div>
+					  <div className="middle-header-wrapper">
+
+						<div className="col-md-3 col-sm-4 col-xs-4">
+							<div className="logo-block">
+								<Link to={routes.HOME.path}>
+									<img src={logo} alt="logo" height="38" width="120"/>
+								</Link>
+							</div>
+						</div>
+
+						<div className="header-info">
+							<SearchForm />
+							<Cart/>
+						</div>
+
 					  </div>
 				  </div>
 			  </div>
 		  </div>
+
 		  <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
 			  <div className="container">
 				  <Link className="navbar-brand" id="nvb-brand" to="/">
