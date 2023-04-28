@@ -42,8 +42,8 @@ const SearchForm = () => {
         category: Yup.string(),
     }),
     onSubmit: (values, {resetForm}) => {
-      
-        navigate(`/results/${values.searchTerm}`)
+        console.log(values);
+        navigate(`/results/${values.category}/${values.searchTerm}`)
         resetForm({values: ""})
     },
     

@@ -6,18 +6,18 @@ import SearchServices from "../../services/SearchServices";
 import ProductCard from "../../component/ProductCard/ProductCard";
 
 const SearchResultsPage = () => {
-  const { term } = useParams();
+  const { cat, term } = useParams();
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    SearchServices.searchResults(term)
+    SearchServices.searchResults(cat, term)
       .then((res) => {
         setProducts(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [term]);
+  }, [cat, term]);
 
   const renderedProducts = () => {
     return products.map(product => {
@@ -30,10 +30,23 @@ const SearchResultsPage = () => {
       <Heading title="SEARCH RESULTS" bgImage={bgImage}></Heading>
       <section className="container products_content">
         <div className="shop__wrapper">
-          <h2>Search results for {term}</h2>
-          <div className="products__container">
-            {renderedProducts()}
-          </div>
+            <h2 className="shop__search-title">Search results for <span>{term}</span>
+            </h2>
+
+            {products.length !== 0 ? 
+            <>
+              <div className="products__container">
+                {renderedProducts()}
+              </div>
+            </>
+            : 
+            <>
+              <div className="shop__results-wrap">
+                <h4>Nothing was found, please try again.</h4>
+              </div>
+            </>
+            }
+   
         </div>
       </section>
     </>

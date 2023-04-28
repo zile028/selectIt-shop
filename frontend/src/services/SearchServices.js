@@ -1,7 +1,7 @@
 import axios from "axios";
 
 class SearchServices {
-    static searchResults = (term) => axios.post(`/results/${term}`)
+    static searchResults = (cat, term) => axios.post(`/results/${cat}/${term}`)
 }
 
 export default SearchServices
