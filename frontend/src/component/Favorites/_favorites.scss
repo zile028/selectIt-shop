@@ -1,0 +1,67 @@
+.favorites-wrapper {
+  transition: all 0.5s;
+  .favorites {
+    position: relative;
+    display: flex;
+    font-size: 16px;
+    flex-direction: row;
+    align-items: center;
+    span {
+      margin: 0px 5px;
+    }
+    .icon {
+      color: red;
+    }
+   
+  }
+  .details {
+    position: absolute;
+    left: -70%;
+    z-index: 9999;
+    background-color: #b4d4d3;
+    border-radius: 5px;
+    width: 25vw;
+    padding: 20px;
+
+    .favorite-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &:hover {
+        background-color: #96cecc;
+      }
+      span {
+        a {
+          font-size: 12px;
+        }
+        img {
+          width: 32px;
+          height: 32px;
+          object-fit: cover;
+          border-radius: 5px;
+          margin: 0 5px;
+        }
+      }
+      .actions {
+        padding: 0 5px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        .add {
+          cursor: pointer;
+          color: #1daaa3;
+          &:hover {
+            color: #105855;
+          }
+        }
+        .delete {
+          cursor: pointer;
+          color: #a55252;
+          &:hover {
+            color: #682727;
+          }
+        }
+      }
+    }
+  }
+}
