@@ -1,4 +1,5 @@
 const UserModel = require("../../model/userModel");
+
 const activateAccount = (req, res) => {
 
     UserModel.updateOne({_id: req.params.id}, {isActivated: true})

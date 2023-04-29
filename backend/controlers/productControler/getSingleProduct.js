@@ -1,8 +1,10 @@
 const ProductModel = require("../../model/productModel");
+const {isValidObjectId} = require("mongoose");
+
 const findSingleProduct = (req, res) => {
     const productId = req.params.id;
 
-    ProductModel.findOne({_id: productId})
+
     ProductModel.aggregate(
         [
             {$addFields: {convertedId: {$toString: "$_id"}}},
@@ -39,13 +41,13 @@ const findSingleProduct = (req, res) => {
         ]
     )
         .then((product) => {
-            console.log(product)
             res.send(product[0])
         })
         .catch((error) => {
             console.log(error)
             res.send(error)
         })
+   
 }
 
 module.exports = findSingleProduct
