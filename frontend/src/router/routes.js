@@ -31,7 +31,17 @@ export const routes = {
         ]
     },
     SOFAS: {path: "/sofas", name: "sofas"},
-    LATEST_PRODUCT: {path: "/latestproduct", name: "latest product"},
+    LATEST_PRODUCT: {
+        path: "/latestproduct",
+        name: "latest product",
+        subitem: [
+          {
+            path: "/latestproduct",
+            name: "latestproduct",
+          },
+        ],
+        realPath: "/category", 
+      },
     BEST_SELER: {
         path: "",
         name: "best seler",

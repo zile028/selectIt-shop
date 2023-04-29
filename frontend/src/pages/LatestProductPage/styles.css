@@ -1,0 +1,79 @@
+#app.app-container {
+    height: 100%;
+    
+  }
+  
+  html,
+  body {
+    position: relative;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    background: #eee;
+ 
+  }
+  
+ .swiper {
+    width: 100%;
+    height: 100%;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+
+  
+  }
+  
+  .app-container .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+  }
+  
+  .app-container.swiper-pagination {
+    display: none;
+  }
+  
+  .app-container .swiper-pagination-bullet {
+    display: none;
+  }
+  
+  .app-container.swiper-pagination-bullet-active:nth-child(-n+3),
+  .app-container.swiper-pagination-bullet:nth-child(-n+3) {
+    display: inline-block;
+  }
+  
+  @media only screen and (max-width: 1200px) {
+    .swiper-slide p {
+      font-size: 0.89em;
+    }
+    .swiper-slide img {
+      width: 85%;
+      height: 85%;
+    }
+  }
+  
+  @media only screen and (max-width: 1050px) {
+    .swiper-slide p {
+      font-size: 0.85em;
+    }
+    .swiper-slide img {
+      width: 75%;
+      height: 75%;
+    }
+    .swiper-slide {
+      font-size: 0.85em;
+    }
+    .swiper {
+      height: 40vh;
+    }
+  }
+  
+  @media only screen and (max-width: 980px) {
+    .swiper-slide {
+      flex-direction: column;
+    }
+  }

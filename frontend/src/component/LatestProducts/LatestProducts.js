@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LatestProducts = () => {
+function LatestProducts() {
   return (
     <div>LatestProducts</div>
   )

@@ -3,10 +3,10 @@ import ProductService from "../../services/productService";
 import {useParams} from "react-router-dom";
 import ProductDetails from "../../component/SingleProduct/ProductDetails";
 import ProductInfo from "../../component/SingleProduct/ProductInfo";
-import LatestProducts from "../../component/LatestProducts/LatestProducts";
 import Heading from "../../component/Heading/Heading";
 import bgImage from "../../assets/images/productbanner.jpg";
 import AxiosErrorPage from "../ErrorPage/AxiosErrorPage";
+import LatestProducts from "../../component/LatestProducts/LatestProducts";
 
 const SingleProductPage = () => {
   const [product, setProduct] = useState({});

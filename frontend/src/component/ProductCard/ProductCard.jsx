@@ -35,7 +35,7 @@ const ProductCard = ({product}) => {
                 </button>
                 <div className="product__hover-group">
 
-                    {user.favorites.includes(product._id) ?
+                    {/* {user.favorites.includes(product._id) ?
 
                         <button className="product__btn" onClick={removeFavoriteHandler}>
                             <MdFavorite/>
@@ -44,7 +44,7 @@ const ProductCard = ({product}) => {
                         <button className="product__btn" onClick={addFavoriteHandler}>
                             <MdFavoriteBorder/>
                         </button>
-                    }
+                    } */}
 
                     <button className="product__btn">
                         <MdOutlineVisibility/>
