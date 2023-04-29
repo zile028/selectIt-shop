@@ -7,6 +7,7 @@ import LoginPage from "../pages/LoginPage/LoginPage";
 import ContactPage from "../pages/ContactPage/ContactPage";
 import SingleProductPage from "../pages/SingleProductPage/SingleProductPage";
 import CartPage from "../pages/CartPage/CartPage";
+import LatestProductPage from "../pages/LatestProductPage/LatestProductPage";
 import SearchResultsPage from "../pages/SearchResultsPage/SearchResultsPage";
 
 export const appChildren = [
@@ -45,6 +46,12 @@ export const appChildren = [
     {
         path: routes.CART.path,
         element: <CartPage/>
+    },
+
+    {
+        path: routes.LATEST_PRODUCT.path,
+        element: <LatestProductPage/>
+         
     },
     {
         path: routes.SEARCH_RESULTS.path,
