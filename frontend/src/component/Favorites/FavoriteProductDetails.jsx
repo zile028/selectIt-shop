@@ -30,7 +30,7 @@ const FavoriteProductDetails = ({ productId, user }) => {
       draggable: true,
       progress: undefined,
       theme: "colored",
-      });
+    });
   };
   const handleRemoveFromFavorites = () => {
     UserServices.removeFromFavorite({
@@ -62,7 +62,6 @@ const FavoriteProductDetails = ({ productId, user }) => {
           </div>
         </div>
       </div>
-  
     </>
   );
 };

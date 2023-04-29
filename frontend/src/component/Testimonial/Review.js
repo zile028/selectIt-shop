@@ -24,8 +24,8 @@ export default function App() {
       <Swiper
         slidesPerView={3}
         spaceBetween={30}
-        pagination={{ clickable: true, dynamicBullets: true }}
-        modules={[Pagination]}
+        // pagination={{ clickable: true, dynamicBullets: true }}
+        // modules={[Pagination]}
         onSwiper={setSwiper}
         mousewheel={false}
         allowTouchMove={false}

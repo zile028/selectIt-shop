@@ -1,59 +1,92 @@
-.heroSlider {
-  height: unset;
-
-}
-
-.mySlide {
-  height: 800px;
-  background-size: cover;
-  background-position: 50% 50%;
-  display: flex;
-  object-fit: cover;
-  align-items: flex-end;
-  padding: 100px;
-  justify-content: flex-end;
-  flex-direction: column;
-  color: #b1b1b1;
-
-  .text {
-    padding: 60px 20px;
-    background-color: rgba(29, 170, 163, 0.3);
-    border-radius: 5px;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+.sliderTop {
+  .mySlide {
+    height: 800px;
+    background-size: cover;
+    background-position: 50% 50%;
     display: flex;
-    flex-direction: column;
-    color: white;
+    object-fit: cover;
     align-items: center;
+    font-family: "Poppins", sans-serif;
+    padding: 100px;
+    justify-content: space-evenly;
+    color: #b1b1b1;
 
-    h1 {
-      font-weight: bold;
+    .left {
+      flex: 1;
+      display: flex;
+      filter: drop-shadow(1px 3px 10px #1daaa3);
+      img {
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 5px;
+      }
     }
 
-    p {
-      // width: 50%;
+    .right {
+      display: flex;
+      flex: 1;
+      padding: 0px 40px;
+      margin:  0 40px;
+      display: flex;
+      flex-direction: column;
+      color: black;
+      align-items: baseline;
+      h1 {
+        font-weight: 700;
+      }
+      p {
+        font-weight: 600;
+      }
+      a {
+        width: 130px;
+        color: black;
+        text-decoration: none;
+      }
     }
+    @media screen and (max-width: 800px) {
+      padding: 10px;
 
-    button {
-      width: 30%;
-
+      .left {
+        display: none;
+      }
+      .right {
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(29, 170, 163, 0.7);
+        border-radius: 8px;
+        padding: 40px 20px;
+        h1 {
+          text-align: center;
+        }
+        p {
+          text-align: center;
+        }
+        a {
+          text-align: center;
+        }
+      }
     }
   }
-}
 
-.swiper-slide {
-}
-
-.swiper-pagination {
-  margin-bottom: 20px;
-
-  .swiper-pagination-bullet {
-    border-radius: 0;
-    background-color: #1daaa3;
-    height: 16px;
-    width: 16px;
-    transition: all 0.3s;
+  .swiper-pagination {
+    margin-bottom: 20px;
+    .swiper-pagination-bullet {
+      border-radius: 0;
+      background-color: #1daaa3;
+      height: 16px;
+      width: 16px;
+      transition: all 0.3s;
+    }
+    .swiper-pagination-bullet-active {
+      width: 32px;
+    }
   }
-
-  .swiper-pagination-bullet-active {
-    width: 32px;
+  .swiper-button-prev {
+    color: #1daaa3;
+  }
+  .swiper-button-next {
+    color: #1daaa3;
   }
 }

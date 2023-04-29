@@ -35,19 +35,6 @@
     
   }
 
-  .swiper-pagination {
-    display: none;
-  }
-  
-  .swiper-pagination-bullet {
-    display: none;
-  }
-  
-  .swiper-pagination-bullet-active:nth-child(-n+3),
-  .swiper-pagination-bullet:nth-child(-n+3) {
-    display: inline-block;
-  }
-
   @media only screen and (max-width: 1200px){
       
      .swiper-slide p{
