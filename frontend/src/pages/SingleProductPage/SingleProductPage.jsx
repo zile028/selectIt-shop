@@ -16,7 +16,6 @@ const SingleProductPage = () => {
   useEffect(() => {
     ProductService.getProductDetails(id)
       .then((res) => {
-        console.log(res.data);
         setProduct(res.data);
       })
       .catch((err) => {
