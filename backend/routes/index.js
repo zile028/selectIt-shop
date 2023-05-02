@@ -9,5 +9,5 @@ router.use('/category', require('./categoryRoutes'))
 router.use("/slider", require("./sliderRoutes"));
 router.use('/brand',require('./brandRoutes'));
 router.use("/results", require("./searchRoutes"));
-router.use("/random", require("./randomRoutes"));
+router.use("/random", require("./randomProductsRoutes"));
 module.exports = router;

@@ -5,6 +5,7 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
+    position: relative;
 
     @include media-breakpoint-down(md) {
         flex-direction: column;
@@ -22,9 +23,8 @@
     @include media-breakpoint-down(md) {
         width: 100%;
         margin-right: 0;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
-
 }
 
 .masonry__right {

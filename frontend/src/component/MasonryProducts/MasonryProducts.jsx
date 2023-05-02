@@ -4,14 +4,20 @@ import MasonryProductCard from "./MasonryProductCard";
 import { Link } from "react-router-dom";
 import { routes } from "../../router/routes";
 import bgImage from "../../assets/images/contactbanner.jpg";
+import {useDispatch} from "react-redux";
+import {setVisibleLoader} from '../../store/loaderSlice';
+import Loader from "../Loader/Loader";
 
 const MasonryProducts = () => {
   const [randomProducts, setRandomProducts] = useState([]);
+  const dispatch = useDispatch()
 
   useEffect(() => {
+    dispatch(setVisibleLoader(true))
     ProductService.getRandomProducts(4)
       .then((res) => setRandomProducts(res.data))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => dispatch(setVisibleLoader(false)))
   }, []);
 
   const renderedProductsLeft = () => {
@@ -45,6 +51,7 @@ const MasonryProducts = () => {
   return (
     <div className="container">
       <div className="masonry">
+        <Loader />
         <div className="masonry__left">{renderedProductsLeft()}</div>
         <div className="masonry__right">
           {renderedProductsRight()}

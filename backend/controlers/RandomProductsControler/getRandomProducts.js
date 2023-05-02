@@ -5,13 +5,13 @@ const getRandomProduct = (req, res) => {
     
     ProductModel.find({})
         .then(data => {
-            let copyData = [...data]
+            let dataCopy = [...data]
             let randomProducts = []
 
             for (let i = 0; i < productNumber; i++) {
-                let random = Math.floor(Math.random() * copyData.length)
-                randomProducts.push(copyData[random])
-                copyData.splice(random, 1)
+                let random = Math.floor(Math.random() * dataCopy.length)
+                randomProducts.push(dataCopy[random])
+                dataCopy.splice(random, 1)
             }
 
             res.send(randomProducts)
