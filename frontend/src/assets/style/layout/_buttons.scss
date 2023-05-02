@@ -4,21 +4,21 @@
 button,
 input[type='button'],
 input[type='submit'] {
-	background: none;
-	border: 0;
-	cursor: pointer;
-	outline: none;
-	padding: 0;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
 }
 
 a,
 button {
-	appearance: none;
-	outline: none;
+    appearance: none;
+    outline: none;
 
-	&:focus {
-		outline: none;
-	}
+    &:focus {
+        outline: none;
+    }
 }
 
 .button {
@@ -27,17 +27,18 @@ button {
     font-size: 12px;
     padding: 12px 43px;
     text-transform: uppercase;
-	transition: all 1s ease 0s;
+    transition: all 1s ease 0s;
+    display: inline-block;
 }
 
 .button--primary {
-	background-color: $green;
+    background-color: $green;
     border: 1px solid $green;
-	color: $white;
+    color: $white;
 
-	&:hover {
-		background-color: transparent;
-		border: 1px solid $green;
-		color: $green;
-	}
+    &:hover {
+        background-color: transparent;
+        border: 1px solid $green;
+        color: $green;
+    }
 }

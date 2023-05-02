@@ -71,6 +71,13 @@ export const routes = {
     },
     CONTACT: {path: "/contact", name: "Contact us"},
     CART: {path: "/cart", name: "Cart"},
+    CHECKOUT: {path: "/cart/checkout"},
+    PAYMENT_INIT: {path: "/cart/payment"},
+    ORDER: {
+        path: "/cart/order",
+        url: "http://localhost:3000/cart/order"
+    },
+
     CATEGORY_PRODUCTS: {
         path: "/shop/:category",
         realPath: (category) => "/shop/" + category

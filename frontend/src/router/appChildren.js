@@ -8,6 +8,9 @@ import ContactPage from "../pages/ContactPage/ContactPage";
 import SingleProductPage from "../pages/SingleProductPage/SingleProductPage";
 import CartPage from "../pages/CartPage/CartPage";
 import SearchResultsPage from "../pages/SearchResultsPage/SearchResultsPage";
+import CheckoutPage from "../pages/CheckoutPage/CheckoutPage";
+import PaymentInitPage from "../pages/PaymentInitPage/PaymentInitPage";
+import OrderPage from "../pages/OrderPage/OrderPage";
 
 export const appChildren = [
     {
@@ -44,10 +47,22 @@ export const appChildren = [
     },
     {
         path: routes.CART.path,
-        element: <CartPage/>
+        element: <CartPage/>,
+    },
+    {
+        path: routes.CHECKOUT.path,
+        element: <CheckoutPage/>
+    },
+    {
+        path: routes.PAYMENT_INIT.path,
+        element: <PaymentInitPage/>
+    },
+    {
+        path: routes.ORDER.path,
+        element: <OrderPage/>
     },
     {
         path: routes.SEARCH_RESULTS.path,
-        element: <SearchResultsPage />
+        element: <SearchResultsPage/>
     }
 ]
