@@ -93,7 +93,7 @@ function ShopPage() {
                     </div>
 
                     <div className="products__container">
-                        {renderedProducts()}
+                        {products.length !== 0 ? renderedProducts() : <><h2>No results.</h2></>}
                     </div>
                     <Pagination setSearchParams={setSearchParams} limit={limit} page={page} count={count} />
                 </div>
