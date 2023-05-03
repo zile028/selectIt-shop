@@ -1,14 +1,8 @@
 const express = require("express");
 const isValidId = require("../middelware/IsValidId");
+const {verifyToken} = require("../middelware/authToken");
 const router = express.Router();
 
-function verifyToken(req, res, next) {
-    if (req.headers.authorization) {
-        next();
-    } else {
-        res.status(201).send({msg: "You must login."});
-    }
-}
 
 /***** GET *****/
 router.get("/addUser", require("../controlers/userControler/addUser"));

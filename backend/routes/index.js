@@ -1,4 +1,5 @@
 const express = require("express");
+const {decodedToken} = require("../middelware/authToken");
 const router = express.Router();
 
 router.use("/user", require("./userRoutes"));

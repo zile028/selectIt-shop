@@ -14,7 +14,10 @@ const login = (req, res) => {
                     } else if (result) {
                         //user logovan
                         delete (user.password)
-                        jwt.sign({id: user._id}, privateKey, {algorithm: 'HS256'}, (err, token) => {
+                        jwt.sign({
+                            id: user._id,
+                            isAdmin: user.isAdmin
+                        }, privateKey, {algorithm: 'HS256'}, (err, token) => {
                             console.log(token)
                             res.send({user, token})
                         })
