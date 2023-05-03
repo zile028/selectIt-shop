@@ -5,6 +5,7 @@ const searchResults = (req, res) => {
     const categoryId = req.query.category ? req.query.category : null;
 
     let query = [{category: categoryId}]
+
     if (searchTerm) {
         query = [...query,
             {title: {$regex: searchTerm, $options: "i"}},
@@ -13,7 +14,6 @@ const searchResults = (req, res) => {
     }
 
     ProductModel.find({
-        //categoryId je string, a category je Object
         $or: query,
     })
         .then(data => res.send(data))
