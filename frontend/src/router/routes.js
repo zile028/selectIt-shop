@@ -88,7 +88,8 @@ export const routes = {
     },
     //DASHBOARD ROUTES
     DASHBOARD: {path: "/dashboard", name: "Account"},
-    ADD_PRODUCT: {path: "addProduct", name: "Add product"}
+    ADD_PRODUCT: {path: "addProduct", name: "Add product"},
+    ORDERS: {path: "orders", name: "Orders"}
 }
 
 export const mainNavbarItem = [
@@ -97,5 +98,5 @@ export const mainNavbarItem = [
 ]
 
 export const dashboardSidebarItem = [
-    routes.DASHBOARD, routes.ADD_PRODUCT
+    routes.DASHBOARD, routes.ADD_PRODUCT, routes.ORDERS
 ]
