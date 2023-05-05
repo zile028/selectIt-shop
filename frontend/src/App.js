@@ -6,12 +6,9 @@ import Footer from "./component/Footer/Footer";
 import React from "react";
 import {ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"
+import {BASE_URL_BE} from "./config/config";
 
-if (process.env.NODE_ENV === "development") {
-    axios.defaults.baseURL = "http://localhost:4000/"
-} else {
-    axios.defaults.baseURL = "https://select-it-shop-be.vercel.app/"
-}
+axios.defaults.baseURL = BASE_URL_BE
 
 function App() {
     return (

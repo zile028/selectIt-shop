@@ -1,3 +1,5 @@
+import {BASE_URL_FE} from "../config/config";
+
 export const routes = {
     HOME: {path: "/", name: "Home"},
 
@@ -75,7 +77,7 @@ export const routes = {
     PAYMENT_INIT: {path: "/cart/payment"},
     ORDER: {
         path: "/cart/order",
-        url: "http://localhost:3000/cart/order"
+        url: BASE_URL_FE + "/cart/order"
     },
 
     CATEGORY_PRODUCTS: {
