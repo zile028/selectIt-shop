@@ -11,7 +11,6 @@ import "react-toastify/dist/ReactToastify.css"
 axios.defaults.baseURL = "http://localhost:4000/"
 
 function App() {
-
     return (
         <>
             <Navbar/>
