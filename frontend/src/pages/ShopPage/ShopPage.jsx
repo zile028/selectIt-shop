@@ -20,6 +20,7 @@ function ShopPage() {
 
     const [searchParams, setSearchParams] = useSearchParams()
     const {category} = useParams()
+
     const dispatch = useDispatch()
 
     const handlePerPageView = (index) => {
@@ -36,19 +37,25 @@ function ShopPage() {
 
     let limit = searchParams.get("limit") ? parseInt(searchParams.get("limit")) : perPageView[selectedView]
     let page = searchParams.get("page") ? parseInt(searchParams.get("page")) : 1
+    let search = searchParams.get("search") ? searchParams.get("search") : ""
 
     useEffect(() => {
         let req = null
 
         if (perPageView[selectedView] !== limit) {
             setSearchParams({limit: perPageView[selectedView], page})
+        } else if (search !== "") {
+            setSearchParams({search, limit, page})
         } else {
             setSearchParams({limit, page})
         }
 
         dispatch(setVisibleLoader(true))
+
         if (category) {
             req = ProductService.categoryPagination(limit, page, category)
+        } else if (search) {
+            req = ProductService.searchProduct(search, limit, page)
         } else {
             req = ProductService.pagination(limit, page)
         }
@@ -63,7 +70,7 @@ function ShopPage() {
 
 
     const renderedProducts = () => {
-        return products.map(product => {
+        return products?.map(product => {
             return <ProductCard product={product} key={product._id}/>
         })
     }
@@ -86,7 +93,7 @@ function ShopPage() {
                     </div>
 
                     <div className="products__container">
-                        {renderedProducts()}
+                        {products.length !== 0 ? renderedProducts() : <><h2>No results.</h2></>}
                     </div>
                     <Pagination setSearchParams={setSearchParams} limit={limit} page={page} count={count} />
                 </div>
