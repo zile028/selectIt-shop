@@ -6,6 +6,7 @@ class ProductService {
     static categoryPagination = (limit, page, category) => axios.get(`/product/${category}/${limit}/${page}`)
     static addProduct = (product) => axios.post('/product/addProduct', product);
     static searchProduct = (search, limit, page) => axios.get(`/product/shop/${search}/${limit}/${page}`)
+    static getRandomProducts = (number) => axios.get(`/random/${number}`);
 }
 
 export default ProductService
