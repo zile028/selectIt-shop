@@ -7,8 +7,11 @@ import React from "react";
 import {ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"
 
-
-axios.defaults.baseURL = "http://localhost:4000/"
+if (process.env.NODE_ENV === "development") {
+    axios.defaults.baseURL = "http://localhost:4000/"
+} else {
+    axios.defaults.baseURL = "https://select-it-shop-be.vercel.app/"
+}
 
 function App() {
     return (
