@@ -20,7 +20,7 @@ router.post("/login", require("../controlers/userControler/login"));
 
 /***** PUT *****/
 router.put(
-    "/activate/:id", isValidId,
+    "/activate/:id",
     require("../controlers/userControler/activateAccount")
 );
 router.put(

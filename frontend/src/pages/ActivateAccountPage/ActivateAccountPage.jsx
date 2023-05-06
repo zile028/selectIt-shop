@@ -15,7 +15,8 @@ function ActivateAccountPage() {
                     navigate(routes.LOGIN.path)
                 }, 3000)
             })
-            .catch(() => {
+            .catch((err) => {
+                console.log(err)
                 setMessage("Something went wrong, maybe bad activation link.")
                 setTimeout(() => {
                     navigate(routes.REGISTER.path)
