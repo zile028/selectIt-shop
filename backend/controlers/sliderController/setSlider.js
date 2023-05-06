@@ -1,4 +1,4 @@
-const SliderModel = require("../../model/SliderModel");
+const SliderModel = require("../../model/sliderModel");
 
 const setSlider = (req, res) => {
     SliderModel.deleteMany({})
