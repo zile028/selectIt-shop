@@ -1,6 +1,7 @@
 const UserModel = require("../../model/userModel")
 const bcrypt = require("bcrypt")
 const {sendActivateLink} = require("../../services/sendMail");
+const {FE_URL} = require("../../config/configVars");
 const saltRound = 10
 
 const register = async (req, res) => {
@@ -28,7 +29,7 @@ const register = async (req, res) => {
         let newUser = new UserModel({...reqBody, password: paswordHash})
         newUser.save()
             .then(user => {
-                let verifyLink = "http://localhost:3000/activate/" + user._id
+                let verifyLink = FE_URL + "activate/" + user._id
                 sendActivateLink(email, verifyLink)
                     .then((data) => {
                         res.send({msg: "Register"})

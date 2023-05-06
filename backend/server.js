@@ -16,7 +16,7 @@ app.use(express.json({limit: '10mb'}));
 
 app.get("/", (req, res) => {
 
-    res.send(process.env)
+    res.send("Welcome to SELECTIT-SHOP server.")
 })
 
 app.use("/", require("./routes"))
@@ -24,3 +24,5 @@ app.use("/", require("./routes"))
 app.listen(4000, () => {
     console.log("Server running...")
 })
+
+// "NODE_ENV": "production",
