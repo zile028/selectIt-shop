@@ -5,6 +5,7 @@ const {privateKey} = require("../../config/configVars");
 
 const login = (req, res) => {
     const {email, password} = req.body
+
     UserModel.findOne({email}, null, {lean: true})
         .then((user) => {
             if (user && user.isActivated) {
